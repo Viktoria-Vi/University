@@ -1,0 +1,14 @@
+a)
+
+testPassed: Zeile 1-8
+output: Zeile 2-9
+
+b)
+
+i: Zeile 1-6
+output: Zeile 2-6
+
+c)
+
+testPassed: Zeile 1-9
+output: Zeile 3-9

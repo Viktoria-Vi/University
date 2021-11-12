@@ -1,0 +1,53 @@
+a) 
+
+
+int predecessor (int a) {
+return a - 1;
+}
+
+int b = predecessor(1337);
+
+int c = predecessor(0);
+
+int d = predecessor(-2147483648);
+
+
+Erwartungen: 
+1337 --> 1336
+0 --> -1
+-2147483648 --> -2147483649
+
+Ergebnisse: 
+
+b ==> 1336
+c ==> -1
+d ==> 2147483647
+
+
+
+b) 
+
+
+boolean isEqual(String a, String b){
+return (a == b);
+}
+
+
+isEqual("Cthulhu", "Nyarlathotep");
+
+
+isEqual("Lovecraft","Lovecraft");
+
+
+isEqual("Howard", new String("Howard"));
+
+
+Erwartungen: 
+"Cthulhu", "Nyarlathotep" --> false
+"Lovecraft","Lovecraft" --> true
+"Howard", new String("Howard") --> true
+
+Ergebnisse:
+"Cthulhu", "Nyarlathotep" --> false
+"Lovecraft","Lovecraft" --> true
+"Howard", new String("Howard") --> false

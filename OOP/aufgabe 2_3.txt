@@ -1,0 +1,69 @@
+void derGerät(int a){
+if ( a > 500  && a < 0){
+System.out.println("Ungültiger Wert");
+return;
+}
+if (a < 72){
+System.out.println("Zu wenig Geld");
+}
+else{
+a = (a - 72);
+System.out.println("Snack wird ausgegeben ");
+}
+while(a >= 200){
+a = a - 200;
+System.out.print(" 2€ ");
+}
+while(a >= 100){
+a = a - 100;
+System.out.print(" 1€ ");
+}
+while(a >= 50){
+a = a - 50;
+System.out.print(" 0,50€ ");
+}
+while(a >= 20){
+a = a - 20;
+System.out.print(" 0.20€ ");
+}
+while(a >= 10){
+a = a - 10;
+System.out.print(" 0,10€ ");
+}
+while(a >= 5){
+a = a - 5;
+System.out.print(" 0,05€ ");
+}
+while(a >= 2){
+a = a - 2;
+System.out.print(" 0,02€ ");
+}
+while(a >= 1){
+a = a - 1;
+System.out.print(" 0,01€ ");
+}
+}
+
+//Test für keine Eingabe
+derGerät(0);
+System.out.println();
+
+//Test für unzureichende Eingabe
+derGerät(50);
+System.out.println();
+
+//Test für genau passende Eingabe(Also ohne Rückgabe von Geld)
+derGerät(72);
+System.out.println();
+
+//Test für maximale Eingabe
+derGerät(500);
+System.out.println();
+
+//Test für negativen Wert(Ungültige Eingabewert)
+derGerät(-1);
+System.out.println();
+
+//Test für zu hohen Wert(Ungültige Eingabewert)
+derGerät(501);
+System.out.println();

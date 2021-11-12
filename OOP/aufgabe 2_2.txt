@@ -1,0 +1,49 @@
+void method_1(){
+System.out.println("Enter method_1");
+method_2_1();
+method_2_2();
+System.out.println("Exit method_1");
+}
+
+
+void method_2_1(){
+System.out.println("Enter method_2_1");
+method_2_2();
+System.out.println("Exit method_2_1");
+}
+
+
+void method_2_2(){
+System.out.println("Enter method_2_2");
+method_3();
+System.out.println("Exit method_2_2");
+}
+
+
+void method_3(){
+System.out.println("Enter method_3");
+System.out.println("Exit method_3");
+}
+
+
+method_1();
+
+
+Erwartungen: 
+Reihenfolge: Enter method_1; Enter method_2_1; Enter method_2_2; Enter method_3; Exit method_3; Exit method_2_2; Exit method_2_1;
+Enter method_2_2; Enter method_3; Exit method_2_2; Exit method_1
+
+Ergebnisse:
+
+Enter method_1
+Enter method_2_1
+Enter method_2_2
+Enter method_3
+Exit method_3
+Exit method_2_2
+Exit method_2_1
+Enter method_2_2
+Enter method_3
+Exit method_3
+Exit method_2_2
+Exit method_1
