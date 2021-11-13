@@ -1,27 +1,27 @@
-double myCalculation(double base, int exponent) {
-double result = 1;
-if (exponent < 0) {
-int number = exponent * -1;
-while (number > 0){
-result = result / base;
-number -= 1;
-}
-return result;
-}
-else {
-int count = exponent;
-while (count > 0) {
-result = result * base;
-count -= 1;
-}
-return result;
-}
+double myCalculation (double base, int exponent) {
+	double result = 1;
+	if (exponent < 0) {
+		int number = exponent * -1;
+		while (number > 0) {
+			result = result / base;
+			number -= 1;
+			}
+		return result;
+		}
+	else {
+		int count = exponent;
+		while (count > 0) {
+		result = result * base;
+		count -= 1;
+		}
+	return result;
+	}
 }
 
 void myTest () {
-boolean b = myCalculation (15,5) == 759375;
-if(b) System.out.println ("Test passed");
-else System.out.println ("Test failed");
+	boolean b = myCalculation (15,5) == 759375;
+	if (b) System.out.println ("Test passed");
+	else System.out.println ("Test failed");
 }
 
 ---
@@ -63,4 +63,13 @@ postage(120,125,2,15);
 postage(100,70,20,500);
 
 ---
+
+double piIterative (int n) { 
+double pi = Math.sqrt(12);
+while(n > 1) {
+	pi = (Math.sqrt(12.0) * (Math.pow( -1.0/3.0,n) / ((2 * n) + 1)));
+n = n - 1;
+ }
+return pi;
+}
 
