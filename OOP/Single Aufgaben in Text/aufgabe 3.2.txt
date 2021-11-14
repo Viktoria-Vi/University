@@ -1,0 +1,42 @@
+boolean isBetween (int value, int lower, int upper) {
+	return (value >= lower && value <= upper);
+}
+
+
+int postage (int lenght, int width, int height, int weight){
+    
+	if (isBetween (weight, 0, 15) && isBetween (height, 0, 2) && isBetween (width, 90, 125) && isBetween (lenght, 140, 235)) {
+		return 60;
+	}
+    	if (isBetween (weight, 0, 20) && isBetween (height, 0, 5) && isBetween (width, 90, 125) && isBetween (lenght, 140, 235)) {
+		return 80;
+	}
+    	if (isBetween (weight, 0, 50) && isBetween (height, 0, 10) && isBetween (width, 70, 125) && isBetween (lenght, 100, 235)) {
+		return 95;
+	}
+    	if (isBetween (weight, 0, 500) && isBetween (height, 0, 20) && isBetween (width, 70, 250) && isBetween (lenght, 100, 353)) {
+		return 155;
+	}
+    	if (isBetween (weight, 0, 1000) && isBetween (height, 0, 50) && isBetween (width, 70, 250) && isBetween (lenght, 100, 353)) {
+		return 270;
+	}
+	else {
+		return -1;
+	}
+}
+
+
+
+// Tests
+//Zu niedrige Werte 
+postage (0, 0, 0, 0); 
+postage (0, 90, 2, 15);
+//Passende Werte (zeigt auch das immer der niedrigste passende Preis ausgegeben wird)
+postage (140, 90, 2, 15); 
+postage (140, 90, 5, 20); 
+postage (100, 70, 10, 50);
+postage (100, 70, 20, 500); 
+postage (100, 70, 50, 1000);
+//Zu hohe Werte
+postage (100, 70, 50, 1001); 
+postage (354, 251, 51, 1001); 

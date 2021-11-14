@@ -1,0 +1,29 @@
+double myCalculation (double base, int exponent) {
+	double result = 1;
+	if (exponent < 0) {
+		int number = exponent * -1;
+		while (number > 0) {
+			result = result / base;
+			number -= 1;
+			}
+		return result;
+	}
+	else {
+		int count = exponent;
+		while (count > 0) {
+		result = result * base;
+		count -= 1;
+		}
+		return result;
+	}
+}
+
+void myTest () {
+	boolean b = myCalculation (15,5) == 759375;
+	if (b) {
+		System.out.println ("Test passed");
+	}
+	else {
+		System.out.println ("Test failed");
+	}
+}
