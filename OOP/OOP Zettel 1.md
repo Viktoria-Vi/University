@@ -86,3 +86,6 @@ Wenn (Neues aktuelles Geld geteilt durch X)<1 Dann Springt man zum nächsten X
 Reihenfolge der X-Werte: 200,100,50,20,10,5,2,1
 Wenn der Fall eintrifft (Neues Aktuelles Geld geteilt durch x)>=1 Wird der Vorgang neu gestartet mit X=200 und 
 Das Ganze wird wiederholt bis Aktuelles Geld=0
+
+
+
