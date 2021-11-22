@@ -186,6 +186,28 @@ static String toTwosComplement(int n) {
                 return;
             }
         }
+
+//Simulation eines Spiels
+        canIWin(17, 23);
+        whatShouldIDo(17, 23); //P1
+        whatShouldIDo(17, 21); //P2
+        whatShouldIDo(17, 18); //P1
+        whatShouldIDo(17, 15); //P2
+        whatShouldIDo(15, 15); //P1
+        whatShouldIDo(13, 15); //P2
+        whatShouldIDo(12, 12); //P1
+        whatShouldIDo(10, 12); //P2
+        whatShouldIDo(10, 10); //P1
+        whatShouldIDo(8, 10); //P2
+        whatShouldIDo(8, 8); //P1
+        whatShouldIDo(6, 8); //P2
+        whatShouldIDo(6, 6); //P1
+        whatShouldIDo(4, 6); //P2
+        whatShouldIDo(4, 4); //P1
+        whatShouldIDo(2, 4); //P2
+        whatShouldIDo(2, 2); //P1
+        whatShouldIDo(0, 2); //P2
+        System.out.println("Player 2 gewinnt);
 ```
 
 
