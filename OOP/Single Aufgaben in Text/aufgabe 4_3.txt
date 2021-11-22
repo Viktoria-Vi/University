@@ -1,0 +1,84 @@
+    static boolean canIWin(int pileA, int pileB) {
+        if ((pileA < 2 && pileB == 2) || (pileA < 2 && pileB == 3) || (pileA < 2 && pileB == 4) || (pileB < 2 && pileA == 2) || (pileB < 2 && pileA == 3) || (pileB < 2 && pileA == 4)) {
+            return true;
+        }
+        if (pileA < 2 && pileB < 2) {
+            return false;
+        }
+        if (pileA == pileB) {
+            return false;
+        }
+        if (pileA + pileB > 0) {
+            return (canIWin(pileA, pileB - 4) | canIWin(pileA, pileB - 5) |
+                    canIWin(pileA, pileB - 6) | canIWin(pileA - 2, pileB - 2) |
+                    canIWin(pileA - 3, pileB - 2) | canIWin(pileA - 3, pileB - 3) |
+                    canIWin(pileA - 2, pileB - 3) | canIWin(pileA - 6, pileB) |
+                    canIWin(pileA - 5, pileB) | canIWin(pileA - 4, pileB));
+        }
+        return false;
+    }
+
+
+        static void whatShouldIDo(int pileA, int pileB) {
+            if ((pileA < 2 && pileB == 2) || (pileA < 2 && pileB == 3) || (pileA < 2 && pileB == 4)) {
+                System.out.println("Nimm so viele Steine wie möglich aus Pile B");
+                return;
+            }
+            if ((pileB < 2 && pileA == 2) || (pileB < 2 && pileA == 3) || (pileB < 2 && pileA == 4)) {
+                System.out.println("Nimm so viele Steine wie möglich aus Pile A");
+                return;
+            }
+            if (!canIWin(pileA, pileB)) {
+                System.out.println("Aufgeben?");
+                System.out.println("Nimm zwei Steine aus Pile A");
+                return;
+            }
+            if ((pileA + 2 == pileB) || (pileA + 3 == pileB) || (pileA - 2 == pileB) || (pileA - 3 == pileB)) {
+                System.out.println("Nimm genau so viele Steine aus einem Pile, sodass beide Piles gleich viele Steine haben");
+                return;
+            }
+            if (pileA % 3 == 0) {
+                System.out.println("Nimm drei Steine aus Pile A");
+                return;
+            }
+            if (pileB % 3 == 0) {
+                System.out.println("Nimm drei Steine aus Pile B");
+                return;
+            }
+            if (pileA > pileB) {
+                System.out.println("Nimm zwei Steine aus Pile A");
+                return;
+            }
+            if (pileA < pileB) {
+                System.out.println("Nimm zwei Steine aus Pile B");
+                return;
+            }
+        }
+
+	//Simulation eines Spiels
+        canIWin(17, 23);
+        whatShouldIDo(17, 23); //P1
+        whatShouldIDo(17, 21); //P2
+        whatShouldIDo(17, 18); //P1
+        whatShouldIDo(17, 15); //P2
+        whatShouldIDo(15, 15); //P1
+        whatShouldIDo(13, 15); //P2
+        whatShouldIDo(12, 12); //P1
+        whatShouldIDo(10, 12); //P2
+        whatShouldIDo(10, 10); //P1
+        whatShouldIDo(8, 10); //P2
+        whatShouldIDo(8, 8); //P1
+        whatShouldIDo(6, 8); //P2
+        whatShouldIDo(6, 6); //P1
+        whatShouldIDo(4, 6); //P2
+        whatShouldIDo(4, 4); //P1
+        whatShouldIDo(2, 4); //P2
+        whatShouldIDo(2, 2); //P1
+        whatShouldIDo(0, 2); //P2
+        System.out.println("Player 2 gewinnt);
+
+
+
+
+
+

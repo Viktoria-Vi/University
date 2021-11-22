@@ -1,0 +1,63 @@
+static void showBillboard(String message) { //Wir führen Strings die irgendwann die einzelnen Reihen werden sollen
+        String upper_border = "";
+        String hair = "";
+        String eyes = "";
+        String empty = "";
+        String lower_border = "";
+        String legs = "";
+        String ankles = "";
+        String feet = "";
+        int length = message.length(); //durch die Mehtode .length() können wir den String message in einen Integer umwandeln welcher die Länge misst
+	if (length > 84) {
+            System.out.println("ERROR! Illegal String length");
+            return;
+        }
+        int length_counter = 0; // Zähler für die while-Schleife damit length nicht verändert wird über die verschiedenen Operationen hin
+        while (length_counter < length) { //Die Schleife verkettet jetzt die einzelnen Strings in Relation zu der Variable length
+            hair += " ";
+            eyes += " ";
+            upper_border += "-";
+            empty += " ";
+            lower_border += "-";
+            legs += " ";
+            ankles += " ";
+            feet += " ";
+            length_counter++;
+            if (length_counter == (length / 2)) { //Auf der Hälfte des Schildes soll Klaus Gesicht zu sehen sein
+                hair += "\\|||||/";
+                eyes += "( O O )";
+                upper_border += "--(_)--";
+                empty += "       ";
+                lower_border += "-------";
+                legs += "|_| |_|";
+                ankles += " || || ";
+                feet += "ooO Ooo";
+            }
+            if (length_counter == length / 2 - 6) { //hier minus 6, weil zwischen Nase und Händen 5 dashes sein sollen, wir fangen also beim 6ten an
+                upper_border += "oo0";
+                empty += "   ";
+                length_counter += 3;//wir fügen 3 Zeichen ein also haben wir auch 3 Zeichen des Strings beschrieben
+            }
+            if (length_counter == length / 2 + 6) { //hier plus 10 wegen der 6 von oben und den 4 von jetzt
+                lower_border += "0oo";
+                length_counter += 3;// same as above :)
+            }
+        }
+        //jede Zeile wird jetzt einzeln auf die Methode ge-casted
+        System.out.println("    " + hair); //keine Ahnung warum die Leerzeichen existieren aber es klappt
+        System.out.println("    " + eyes);//same as above
+        System.out.println("|" + upper_border + "|");
+        System.out.println("|" + empty + "|"); //empty braucht 10 zusätzliche Leerzeilen wegen den in Zeile 16-28 eingefügten Zeichen
+        System.out.println("|  " + message + "  |"); //Hier wurden manuell die jeweils 2 Leerzeilen wegen den dashes in Zeile 19 eingefügt
+        System.out.println("|" + empty + "|");//empty braucht 10 zusätzliche Leerzeilen wegen den in Zeile 16-28 eingefügten Zeichen
+        System.out.println("|" + lower_border + "|");
+        System.out.println("    " + legs);
+        System.out.println("    " + ankles);
+        System.out.println("    " + feet);
+    }
+
+		//Momentan hält Klaus das Schild bissi schief aber zumindest ist der nicht Mr. Fantastic ;)
+        showBillboard("Testing your own code is important!");
+        showBillboard("Testing your program with all kinds of different input values is important!");
+        showBillboard("");
+        showBillboard("Lieber Mankel, wir hoffen du erholst dich gut, sodass wir uns naechste Woche im Tut wieder sehen können.")

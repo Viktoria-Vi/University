@@ -9,6 +9,10 @@
         String ankles = "";
         String feet = "";
         int length = message.length(); //durch die Mehtode .length() können wir den String message in einen Integer umwandeln welcher die Länge misst
+        if (length > 84) {
+            System.out.println("ERROR! Illegal String length");
+            return;
+        }
         int length_counter = 0; // Zähler für die while-Schleife damit length nicht verändert wird über die verschiedenen Operationen hin
         while (length_counter < length) { //Die Schleife verkettet jetzt die einzelnen Strings in Relation zu der Variable length
             hair += " ";
@@ -133,6 +137,55 @@ static String toTwosComplement(int n) {
         toTwosComplement(-5);
         toTwosComplement(-127);
         toTwosComplement(-55);
+```
+
+```java
+    static boolean canIWin(int pileA, int pileB) {
+        if ((pileA < 2 && pileB == 2) || (pileA < 2 && pileB == 3) || (pileA < 2 && pileB == 4) || (pileB < 2 && pileA == 2) || (pileB < 2 && pileA == 3) || (pileB < 2 && pileA == 4)) {
+            return true;
+        }
+        if (pileA < 2 && pileB < 2) {
+            return false;
+        }
+        if (pileA == pileB) {
+            return false;
+        }
+        if (pileA + pileB > 0) {
+            return (canIWin(pileA, pileB - 4) | canIWin(pileA, pileB - 5) |
+                    canIWin(pileA, pileB - 6) | canIWin(pileA - 2, pileB - 2) |
+                    canIWin(pileA - 3, pileB - 2) | canIWin(pileA - 3, pileB - 3) |
+                    canIWin(pileA - 2, pileB - 3) | canIWin(pileA - 6, pileB) |
+                    canIWin(pileA - 5, pileB) | canIWin(pileA - 4, pileB));
+        }
+        return false;
+    }
+
+        static void whatShouldIDo(int pileA, int pileB) {
+            if ((pileA < 2 && pileB == 2) || (pileA < 2 && pileB == 3) || (pileA < 2 && pileB == 4)) {
+                System.out.println("Nimm so viele Steine wie möglich aus Pile B");
+                return;
+            }
+            if ((pileB < 2 && pileA == 2) || (pileB < 2 && pileA == 3) || (pileB < 2 && pileA == 4)) {
+                System.out.println("Nimm so viele Steine wie möglich aus Pile A");
+                return;
+            }
+            if (canIWin(pileA, pileB) == false) {
+                System.out.println("Aufgeben?");
+                return;
+            }
+            if ((pileA + 2 == pileB) || (pileA + 3 == pileB) || (pileA - 2 == pileB) || (pileA - 3 == pileB)) {
+                System.out.println("Nimm genau so viele Steine aus einem Pile, sodass beide Piles gleich viele Steine haben");
+                return;
+            }
+            if (pileA > pileB) {
+                System.out.println("Nimm zwei Steine aus Pile A");
+                return;
+            }
+            if (pileA < pileB) {
+                System.out.println("Nimm zwei Steine aus Pile B");
+                return;
+            }
+        }
 ```
 
 

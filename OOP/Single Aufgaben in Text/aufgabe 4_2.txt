@@ -1,0 +1,123 @@
+static String toBinary(int n) {
+        if (n < 0) {
+            System.out.println("Negative values are not an valid input");
+        }
+        if (n == 0) {
+            return "";
+        }
+        return (toBinary(n / 2) + n % 2);
+    }
+
+        static void binaryTest() {
+            String binaryTest1 = "101";
+            String binaryTest1Result = toBinary(5);
+            String binaryTest2 = "1111111";
+            String binaryTest2Result = toBinary(127);
+            if (binaryTest1.equals(binaryTest1Result)) {
+                System.out.println("Binary test 1 passed!");
+            } else {
+                System.out.println("Binary test 1 failed");
+                System.out.println("Expected: " + binaryTest1);
+                System.out.println("Actual: " + binaryTest1Result);
+            }
+            if (binaryTest2.equals(binaryTest2Result)) {
+                System.out.println("Binary test 2 passed!");
+            } else {
+                System.out.println("Binary test 2 failed");
+                System.out.println("Expected: " + binaryTest2);
+                System.out.println("Actual: " + binaryTest2Result);
+            }
+        }
+
+		binaryTest();
+
+
+
+        static String toOctal(int n) {
+            if (n < 0) {
+                System.out.println("Negative values are not an valid input");
+            }
+            if (n == 0) {
+                return "";
+            }
+            return (toOctal(n / 8) + n % 8);
+        }
+
+        static void octalTest() {
+            String octalTest1 = "33";
+            String octalTest1Result = toOctal(27);
+            String octalTest2 = "377";
+            String octalTest2Result = toOctal(255);
+            if (octalTest1.equals(octalTest1Result)) {
+                System.out.println("Octal test 1 passed!");
+            } else {
+                System.out.println("Octal test 1 failed");
+                System.out.println("Expected: " + octalTest1);
+                System.out.println("Actual: " + octalTest1Result);
+            }
+            if (octalTest2.equals(octalTest2Result)) {
+                System.out.println("Octal test 2 passed!");
+            } else {
+                System.out.println("Octal test 2 failed");
+                System.out.println("Expected: " + octalTest2);
+                System.out.println("Actual: " + octalTest2Result);
+            }
+        }
+
+        octalTest();
+
+
+
+  static String toTwosComplement(int n) {
+        if (n > 127 || n < -128) {
+            return "ERROR! Not convertible in 8-Bit.";
+        }
+        n = n + 1;
+        if (n < 0) {
+            n = -n;
+        }
+        int counter = 0;
+        String complement = "";
+        while (counter < 8) {
+            if (n % 2 == 1) {
+                complement = "0" + complement;
+            } else {
+                complement = "1" + complement;
+            }
+            n = n / 2;
+            counter++;
+        }
+        return complement;
+    }
+    
+        static void toTwosComplementTest() {
+            String toTwosComplementTest1 = "11111011";
+            String toTwosComplementTest1Result = toTwosComplement(-5);
+            String toTwosComplementTest2 = "10000001";
+            String toTwosComplement2Result = toTwosComplement(-127);
+            String toTwosComplementTest3 = "ERROR! Not convertible in 8-Bit".;
+            String toTwosComplement3Result = toTwosComplement(-129);
+            if (toTwosComplementTest1.equals(toTwosComplementTest1Result)) {
+                System.out.println("TwosComplement test 1 passed!");
+            } else {
+                System.out.println("TwosComplement test 1 failed");
+                System.out.println("Expected: " + toTwosComplementTest1);
+                System.out.println("Actual: " + toTwosComplementTest1Result);
+            }
+            if (toTwosComplementTest2.equals(toTwosComplement2Result)) {
+                System.out.println("TwosComplement test 2 passed!");
+            } else {
+                System.out.println("TwosComplement test 2 failed");
+                System.out.println("Expected: " + toTwosComplementTest2);
+                System.out.println("Actual: " + toTwosComplement2Result);
+            }
+            if (toTwosComplementTest3.equals(toTwosComplement3Result)) {
+                System.out.println("TwosComplement test 3 passed!");
+            } else {
+                System.out.println("TwosComplement test 3 failed");
+                System.out.println("Expected: " + toTwosComplementTest3);
+                System.out.println("Actual: " + toTwosComplement3Result);
+            }
+        }
+
+        toTwosComplementTest()
