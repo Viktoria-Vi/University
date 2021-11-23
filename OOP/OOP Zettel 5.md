@@ -38,7 +38,25 @@ static void testAll() {
         }
     }
 //Minimum
+    static float getMinimum(float[] numbers) {
+        float lowestValue = Float.MAX_VALUE;
+        for (int counter = 0; counter < numbers.length; counter++) {
+            if (numbers[counter] < lowestValue) {
+                lowestValue = numbers[counter];
+            }
+        }
+        return lowestValue;
+    }
 //Maximum
+static float getMaximum(float[] numbers) {
+            float highestValue = Float.MIN_VALUE;
+            for (float number : numbers) {
+                if (number > highestValue) {
+                    highestValue = number;
+                }
+            }
+            return highestValue;
+        }
 //Average
  static float calculateAverage(float[] numbers) {
             int counter = 0;
