@@ -87,3 +87,40 @@
 
 ```
 
+```java
+    static double distance(double[] gps) {
+        int counter = 0;
+        double distance = 0.0;
+        while (counter < gps.length - 3) {
+            distance += Math.sqrt((Math.pow(gps[counter + 3] - gps[counter], 2)) +
+                    (Math.pow(gps[counter + 4] - gps[counter + 1], 2)) +
+                    (Math.pow(gps[counter + 5] - gps[counter + 2], 2)));
+            counter += 3;
+
+        }
+        return distance;
+    }
+
+
+        static double velocity(double[] gps) {
+            return distance(gps) / (gps.length / 3);
+        }
+
+        static double maxVelocity(double gps[]) {
+            int counter = 0;
+            double velocityPerSec = 0.0;
+            double maxVelocity = 0.0;
+            while (counter < gps.length - 3) {
+                velocityPerSec = Math.sqrt((Math.pow(gps[counter + 3] - gps[counter], 2)) +
+                        (Math.pow(gps[counter + 4] - gps[counter + 1], 2)) +
+                        (Math.pow(gps[counter + 5] - gps[counter + 2], 2)));
+                if (velocityPerSec > maxVelocity) {
+                    maxVelocity = velocityPerSec;
+                }
+                counter += 3;
+            }
+            return maxVelocity;
+        }
+
+```
+
