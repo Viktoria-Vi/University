@@ -28,7 +28,7 @@
             System.out.println("Actual:" + averageTestResult);
         }
         boolean sortedTest = true;
-        boolean sortedTestResult = isSorted(new float[]{-0.5f, 0.f, 0.37f, 0.5f});
+        boolean sortedTestResult = isSorted(new float[]{-0.5f, 0.f, 0.37f, 0.5f}, true);
         if (sortedTest == (sortedTestResult)) {
             System.out.println("Sorted test passed");
         } else {
@@ -38,7 +38,6 @@
         }
     }
 
-//Minimum
         static float getMinimum(float[] numbers) {
             float lowestValue = Float.MAX_VALUE;
             for (int counter = 0; counter < numbers.length; counter++) {
@@ -48,7 +47,7 @@
             }
             return lowestValue;
         }
-//Maximum
+
         static float getMaximum(float[] numbers) {
             float highestValue = Float.MIN_VALUE;
             for (float number : numbers) {
@@ -58,7 +57,7 @@
             }
             return highestValue;
         }
-//Average
+
         static float calculateAverage(float[] numbers) {
             int counter = 0;
             float sum = 0.f;
@@ -68,15 +67,22 @@
             }
             return sum / numbers.length;
         }
-//Sorted
-        static boolean isSorted(float[] numbers) {
-            for (int counter = 0; counter < numbers.length - 1; counter++) {
-                if (numbers[counter] > numbers[counter + 1])
-                    return false;
-            }
-            return true;
-        }
 
+        static boolean isSorted(float[] numbers, boolean ascending) {
+            if (numbers[0] <= numbers[1]) {
+                //System.out.println(numbers[0] + " ' " + numbers[1]);
+                float[] newNumbers = new float[numbers.length - 1];
+                System.arraycopy(numbers, 1, newNumbers, 0, newNumbers.length);
+                //System.out.println(newNumbers.length);
+                if (newNumbers.length == 1) {
+                    //System.out.println(numbers[0]);
+                    return ascending; //der skippt das return einfach, frech!
+                }
+                isSorted(newNumbers, ascending);
+            }
+            //System.out.println("ping");
+            return !ascending;
+        }
         testAll();
 
 ```
