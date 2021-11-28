@@ -39,7 +39,7 @@
     }
 
         static float getMinimum(float[] numbers) {
-            float lowestValue = Float.MAX_VALUE;
+            float lowestValue = Float.MAX_VALUE; //Das gibt und den größten Wert den float ausgeben kann, alles ist demnach kleiner als das; den schritt kann man theoretisch auch skippen, weil wir sowieso nur die Einträge im Array miteinander vergleichen. Wir brauchen aber sowieso so eine "SpeicherVariable" also might as well ;).
             for (int counter = 0; counter < numbers.length; counter++) {
                 if (numbers[counter] < lowestValue) {
                     lowestValue = numbers[counter];
@@ -49,7 +49,7 @@
         }
 
         static float getMaximum(float[] numbers) {
-            float highestValue = Float.MIN_VALUE;
+            float highestValue = numbers[0]; //So kann man das z.B. ohne Array fremde Werte machen.
             for (float number : numbers) {
                 if (number > highestValue) {
                     highestValue = number;
@@ -61,66 +61,92 @@
         static float calculateAverage(float[] numbers) {
             int counter = 0;
             float sum = 0.f;
-            while (counter < numbers.length) {
+            while (counter < numbers.length) { //berechnet einfach ne simple Summe über alle Einträge im Array.
                 sum += numbers[counter];
                 counter++;
             }
-            return sum / numbers.length;
+            return sum / numbers.length; //dann durch die Anzahl der Einträge teilen, macht den Durchschritt.
         }
 
         static boolean isSorted(float[] numbers, boolean ascending) {
-            if (numbers[0] <= numbers[1]) {
-                //System.out.println(numbers[0] + " ' " + numbers[1]);
-                float[] newNumbers = new float[numbers.length - 1];
-                System.arraycopy(numbers, 1, newNumbers, 0, newNumbers.length);
-                //System.out.println(newNumbers.length);
-                if (newNumbers.length == 1) {
-                    //System.out.println(numbers[0]);
-                    return ascending; //der skippt das return einfach, frech!
+            if (ascending == true) { //wenn die Zahlen aufsteigend sind (1,2,3)
+                if (numbers[0] <= numbers[1]) { //ist 1 kleiner 2?
+                    float[] newNumbers = new float[numbers.length - 1];//neuer Array der von der Länge eins kürzer is als der alte
+                    System.arraycopy(numbers, 1, newNumbers, 0, newNumbers.length); //wird hier befüllt
+                    if (newNumbers.length == 1) { //wenn der Array nur noch einen Eintrag hat, haben wir alle miteinander verglichen, ohne jemals nen Fehler zu bekommen
+                        return true; //also stimmt es
+                    }
+                    return isSorted(newNumbers, ascending); //Rekursion ruft hier die Methode immer wieder mit dem um eins kürzerem Array auf
+                } else {
+                    return false; //wenn ein Fehler ist es Falsch
                 }
-                isSorted(newNumbers, ascending);
             }
-            //System.out.println("ping");
-            return !ascending;
+            if (ascending == false) { //wenn die Zahlen absteigend sind (3,2,1)
+                if (numbers[0] >= numbers[1]) { //ist 3 größer 2?
+                    float[] newNumbers = new float[numbers.length - 1]; //Hier unterscheidet sich gar nichts von oben
+                    System.arraycopy(numbers, 1, newNumbers, 0, newNumbers.length);
+                    if (newNumbers.length == 1) {
+                        return true;
+                    }
+                    return isSorted(newNumbers, ascending);
+                } else {
+                    return false;
+                }
+            }
+            return ascending; //pseudo return das nie zum Abruf kommt ;)
         }
         testAll();
 
 ```
 
 ```java
-    static double distance(double[] gps) {
-        int counter = 0;
-        double distance = 0.0;
-        while (counter < gps.length - 3) {
-            distance += Math.sqrt((Math.pow(gps[counter + 3] - gps[counter], 2)) +
-                    (Math.pow(gps[counter + 4] - gps[counter + 1], 2)) +
-                    (Math.pow(gps[counter + 5] - gps[counter + 2], 2)));
-            counter += 3;
+import java.util.Arrays;static double distance(double[] gps) {
+    double distance = 0.0;
+    for (int counter = 0; counter < gps.length - 3; counter += 3) { //summiert die Distanz jeweils zwischen 2 Koordinaten(x,y,z);gps.length - 3, weil wir ja bei den letzten 3 Einträgen keine Distanz mehr zum nächsten haben.
+        distance += Math.sqrt((Math.pow(gps[counter + 3] - gps[counter], 2)) +
+                (Math.pow(gps[counter + 4] - gps[counter + 1], 2)) +
+                (Math.pow(gps[counter + 5] - gps[counter + 2], 2)));
+    }
+    return distance;
+}
 
-        }
-        return distance;
+
+    static double velocity(double[] gps) { //wir berechnen oben jeweils die (summierte) Distanz in Metern, also können wir das einfach nehmen und durch die Anzahl der triple teilen.
+        return distance(gps) / (gps.length / 3);
     }
 
-
-        static double velocity(double[] gps) {
-            return distance(gps) / (gps.length / 3);
-        }
-
-        static double maxVelocity(double gps[]) {
-            int counter = 0;
-            double velocityPerSec = 0.0;
-            double maxVelocity = 0.0;
-            while (counter < gps.length - 3) {
-                velocityPerSec = Math.sqrt((Math.pow(gps[counter + 3] - gps[counter], 2)) +
-                        (Math.pow(gps[counter + 4] - gps[counter + 1], 2)) +
-                        (Math.pow(gps[counter + 5] - gps[counter + 2], 2)));
-                if (velocityPerSec > maxVelocity) {
-                    maxVelocity = velocityPerSec;
-                }
-                counter += 3;
+    static double maxVelocity(double[] gps) {
+        double velocityPerSec;
+        double maxVelocity = 0.0; //könnte auch maxVelocityPerSec heißen
+        for (int counter = 0; counter < gps.length - 3; counter += 3) { //wir machen sowas ähnliches wie bei der Distanz, nur ohne summe, und wir schauen uns nach jedem Schritt an wie groß die Werte sind und speichern den größten davon.
+            velocityPerSec = Math.sqrt((Math.pow(gps[counter + 3] - gps[counter], 2)) +
+                    (Math.pow(gps[counter + 4] - gps[counter + 1], 2)) +
+                    (Math.pow(gps[counter + 5] - gps[counter + 2], 2)));
+            if (velocityPerSec > maxVelocity) {
+                maxVelocity = velocityPerSec;
             }
-            return maxVelocity;
         }
+        return maxVelocity;
+    }
 
+    import java.util.Arrays;static double[] partialGPS(double[] gps, double[] start, double[] end) {
+        int startingPoint = 0; //Initialisiere Start und end Index für nachher
+        int endingPoint = 0;
+        if (start == null || end == null) {
+            return gps;
+        }
+        for (int counter = 0; counter < gps.length; counter += 3) {
+            if (gps[counter] == start[0] && gps[counter + 1] == start[1] && gps[counter + 2] == start[2]) { //Vergleiche alle Einträge der eingegebenen Koordinate mit dem Array
+                startingPoint = counter;
+            }
+            if (gps[counter] == end[0] && gps[counter + 1] == end[1] && gps[counter + 2] == end[2]) { //Same as above
+                endingPoint = counter + 3; //+3, weil counter ja bei der x-Koordinate anfängt
+            }
+        }
+        if (endingPoint < startingPoint) { //Start darf nicht hinter End liegen!
+            return gps;
+        }
+        return Arrays.copyOfRange(gps, startingPoint, endingPoint); //Kopiert den Array mit den oben definierten Grenzen
+    }
 ```
 
