@@ -1,0 +1,15 @@
+```java
+static double seriesCircuit(double rOne, double rTwo) {
+    return rOne + rTwo;
+}
+static double parallelCircuit(double rOne, double rTwo) {
+    return (rOne * rTwo) / (rOne + rTwo);
+}
+
+static double testCircuit() {
+    return parallelCircuit(seriesCircuit(parallelCircuit(60, 40),50),
+            parallelCircuit(seriesCircuit(50,70), 80));
+}
+
+testCircuit()
+```
