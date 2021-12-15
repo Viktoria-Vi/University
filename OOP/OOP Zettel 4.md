@@ -207,7 +207,7 @@ static String toTwosComplement(int n) {
         whatShouldIDo(2, 4); //P2
         whatShouldIDo(2, 2); //P1
         whatShouldIDo(0, 2); //P2
-        System.out.println("Player 2 gewinnt);
+        System.out.println("Player 2 gewinnt");
 ```
 
 
