@@ -94,6 +94,7 @@ Exit method_1
 
 Vorbedingung: Der maximale Eingabewert ist 5€. 
 
+```Java
 void derGerät(int a){
 if (a < 72){
 System.out.println("Zu wenig Geld");
@@ -151,6 +152,7 @@ System.out.println();
 //Test für maximale Eingabe
 derGerät(500);
 System.out.println();
+```
 
 ---
 
