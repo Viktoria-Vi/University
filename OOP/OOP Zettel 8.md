@@ -1,27 +1,28 @@
+
+
 ```java
 public class Caesar {
     static String decode(String coded, char a, char b) {
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        int charOne = 0;
-        int charTwo = 0;
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //Alphabet für die Entschlüsselung
+        int charOne = 0; //Zwischenspeicher für die Stelle von a in Alphabet
+        int charTwo = 0; //Zwischenspeicher für die Stelle von b in Alphabet
         for (int i = 0; i < alphabet.length(); i++) {
-
-            if (alphabet.charAt(i) == a || alphabet.toLowerCase().charAt(i) == a) {
+            if (alphabet.charAt(i) == a || alphabet.toLowerCase().charAt(i) == a) { //Suchen nach a
                 charOne = i;
             }
-            if (alphabet.charAt(i) == b || alphabet.toLowerCase().charAt(i) == b) {
+            if (alphabet.charAt(i) == b || alphabet.toLowerCase().charAt(i) == b) { //Suchen nach b
                 charTwo = i;
             }
         }
-        int distance = charTwo - charOne;
-        String decoded = "";
+        int distance = charTwo - charOne; //Berechnung der Entfernung der beiden Buchstaben
+        String decoded = ""; //Leerer String um das decodierte Wort aufzubauen
         for (int i = 0; i < coded.length(); i++) {
             for (int j = 0; j < alphabet.length(); j++) {
-                if (alphabet.charAt(j) == coded.charAt(i)) {
+                if (alphabet.charAt(j) == coded.charAt(i)) { //Berechnung der Entschlüsselung
                     if (j + distance > 25) {
-                        decoded += alphabet.charAt(j + distance - 25);
+                        decoded += alphabet.charAt(j + distance - 26); //Falls der entschlüsselte Index > 25 ist
                     } else if (j + distance < 0) {
-                        decoded += alphabet.charAt(j + distance + 25);
+                        decoded += alphabet.charAt(j + distance + 26); //Falls der entschlüsselte Index < 25 ist
                     } else {
                         decoded += alphabet.charAt(j + distance);
                     }
@@ -30,21 +31,30 @@ public class Caesar {
         }
         return decoded;
     }
+}
+```
 
-    public static void main(String[] args) {
-        decode("HGXBO", 'W', 'Z');
-        decode("DKKLAJ", 'n', 'R');
-        decode("TUFSMJOH", 'A', 'Z');
-        decode("VJGFKDDWM", 'E', 'c');
-        decode("ZQJCAKJIWOPAN", 'W', 'A');
-        decode("XHZRGFLGJSOFRNS", 'G', 'B');
+```java
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class CaesarTest {
+
+    @Test
+    void decode() {
+        assertEquals(Caesar.decode("HGXBO", 'W', 'Z'), "KJAER");
+        assertEquals(Caesar.decode("DKKLAJ", 'n', 'R'), "HOOPEN");
+        assertEquals(Caesar.decode("TUFSMJOH", 'A', 'Z'), "STERLING");
+        assertEquals(Caesar.decode("VJGFKDDWM", 'E', 'c'), "THEDIBBUK");
+        assertEquals(Caesar.decode("ZQJCAKJIWOPAN", 'W', 'A'), "DUNGEONMASTER");
+        assertEquals(Caesar.decode("XHZRGFLGJSOFRNS", 'G', 'B'), "SCUMBAGBENJAMIN");
+        assertEquals(Caesar.decode("HEROIHEHHC", 'J', 'F'), "DANKEDADDY");
     }
 }
 ```
 
 ```java
-import java.util.Arrays;
-
 public class Card implements Comparable {
 
     private final String name;
@@ -110,10 +120,6 @@ public class Card implements Comparable {
         }
         return result;
     }
-
-    public static void main(String[] args) { //muss ne Klasse ne Main haben?
-
-    }
 }
 ```
 
@@ -126,26 +132,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CardTest {
 
-    Card[] testDeck = new Card[]{ //erstellt erst neues Card-Array
-            new Card("Viktoria", Card.EFFECT_MONSTER, 2021),
-            new Card("Felix", Card.NORMAL_MONSTER, 2021),
-            new Card("Anna", Card.NORMAL_MONSTER, 2021),
-            new Card("Mankel", Card.NORMAL_MONSTER, 2021),
-            new Card("Akito", Card.EFFECT_MONSTER, 2021),
-            new Card("Leann", Card.EFFECT_MONSTER, 2021),
-            new Card("Anna spawnt Akito", Card.SPELL_CARD, 2021),
-            new Card("Zettelabgabe verschoben", Card.SPELL_CARD, 2020),
-            new Card("Tut fällt aus", Card.TRAP_CARD, 2021),
-            new Card("Chinesische Ringe", Card.TRAP_CARD, 2020)
-    };
+
+    Card card1 = new Card("Viktoria", Card.EFFECT_MONSTER, 2021);
+    Card card2 = new Card("Felix", Card.NORMAL_MONSTER, 2021);
+    Card card3 = new Card("Anna", Card.NORMAL_MONSTER, 2021);
+    Card card4 = new Card("Mankel", Card.NORMAL_MONSTER, 2021);
+    Card card5 = new Card("Mimi", Card.EFFECT_MONSTER, 2021);
+    Card card6 = new Card("Leann", Card.EFFECT_MONSTER, 2021);
+    Card card7 = new Card("Anna spawnt Akito", Card.SPELL_CARD, 2021);
+    Card card8 = new Card("Zettelabgabe verschoben", Card.SPELL_CARD, 2020);
+    Card card9 = new Card("Tut fällt aus", Card.TRAP_CARD, 2021);
+    Card card10 = new Card("Chinesische Ringe", Card.TRAP_CARD, 2020);
+    Card card11 = new Card("Tut fällt aus", Card.TRAP_CARD, 2020);//warum auch immer verlangt die Aufgabe so ein bspl
+    Card card12 = new Card("Tut fällt aus", Card.TRAP_CARD, 2021); //genaues Duplikaat von card9
+
 
     @Test
     void compareTo() {
+        Card[] testDeck = new Card[]{card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12};//Rohes-array von den Karten
         Arrays.sort(testDeck); //sortiert Array
-        assertEquals("[Spellcard: Zettelabgabe verschoben, Trapcard: Chinesische Ringe, NORMAL_MONSTER: Anna," +
-                        " NORMAL_MONSTER: Felix, NORMAL_MONSTER: Mankel, EFFECT_MONSTER: Akito, EFFECT_MONSTER: Leann," +
-                        " EFFECT_MONSTER: Viktoria, Spellcard: Anna spawnt Akito, Trapcard: Tut fällt aus]",
-                Arrays.toString(testDeck)); //vergleicht die sortierte Ausgabe als String mit dem erwarteten String
+        Card[] sortedDeck = new Card[]{card8, card10, card11, card3, card2, card4, card6, card5, card1, card7, card9, card12};//richtig sortiertes Deck
+        Card[] falseSortedDeck = new Card[]{card8, card10, card11, card3, card2, card4, card6, card5, card1, card7, card12, card9};//Falsch sortiertes Deck(vertauschte letzte stellen)
+        assertArrayEquals(testDeck, sortedDeck); //zeigt das die Sortierung klappt, und das Duplikate nach auftreten im Ursprungsarray gerreiht werden
+        assertFalse(Arrays.equals(testDeck, falseSortedDeck));//false-Test um das hierrüber nochmal zu unterstützen;
     }
 }
 ```
@@ -172,7 +181,6 @@ public interface Number {
         fromIntValue(this.toIntValue() / number.toIntValue());
     }
 }
-
 ```
 
 ```java
@@ -186,14 +194,13 @@ public class HexaDecimal implements Number {
     @Override
     public int toIntValue() {
         return Integer.valueOf(value, 16); //das wandelt von selbst aus dem Hexadezimalsystem um
-    }
+}
 
     @Override
     public void fromIntValue(int value) {
         this.value = Integer.toHexString(value).toUpperCase(); //das erstellt einen String im Hexadezimalsystem
     }
 }
-
 ```
 
 ```java
@@ -206,16 +213,16 @@ class HexaDecimalTest {
     @Test
     void toIntValue() {
         HexaDecimal testOne = new HexaDecimal("154B3");
-        HexaDecimal testTwo = new HexaDecimal("16C");
+        HexaDecimal testTwo = new HexaDecimal("FC7AFD");
         assertEquals(testOne.toIntValue(), 87219);
-        assertEquals(testTwo.toIntValue(), 364);
+        assertEquals(testTwo.toIntValue(), 16546557);
     }
 
     @Test
     void fromIntValue() {
         HexaDecimal testOne = new HexaDecimal("0"); //erstelle zwei Objekte mit beliebiger Eingabe
         HexaDecimal testTwo = new HexaDecimal("0");
-        testOne.fromIntValue(2810); //das setzt den value jeweils new
+        testOne.fromIntValue(2810); //das setzt den value jeweils neu
         testTwo.fromIntValue(1312);
         assertEquals(testOne.value, "AFA"); //test für den neuen value
         assertEquals(testTwo.value, "520");
