@@ -18,4 +18,3 @@
 (place-image (circle r "solid" color) CENTER CENTER
 (empty-scene UPPER UPPER))))))
 )
-(draw 20 "red")

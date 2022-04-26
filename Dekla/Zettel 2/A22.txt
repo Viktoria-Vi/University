@@ -1,0 +1,11 @@
+a)
+(* 2 (string-length (string-append "Die Zahl ist " 5))) ;Syntaxfehler, da Racket (17 - 4) als Funktionsaufruf und nicht als Subtraktion sieht
+
+b)
+(* 2 (string-length (string-append "Die Zahl ist " 5)))  ;Laufzeitfehler, da die Funtktion "string-append" zwei Strings erwartet, aber mit 5 eine Zahl übergeben bekommt
+
+c)
+(/ (image-width (circle 50 "solid" "red")) 2) ;Gibt 50 aus. Berechnet die hälfte des Durchmessers eines Kreises mit Radius 50 ;)
+
+d)
+(/ (+ 23 7) (- 16 (* 4 4))) ;Laufzeitfehler wegen der Division durch 0 bei (- 16 (* 4 4))

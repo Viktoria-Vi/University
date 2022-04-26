@@ -1,0 +1,38 @@
+(define NEG "negativ")
+(define NUL "null")
+(define POS "positiv")
+(define (vorzeichen num)
+(cond
+[(< num 0) NEG]
+[(> num 0) POS]
+[else NUL]))
+
+(vorzeichen 10)
+ 
+Regel 2
+(cond
+[(< 10 0) NEG]
+[(> 10 0) POS]
+[else NUL]))
+
+Regel 1
+(cond
+[false NEG]
+[(> 10 0) POS]
+[else NUL])
+
+Regel 3
+(cond
+[(> 10 0) POS]
+[else NUL])
+
+Regel 1
+(cond
+[true POS]
+[else NUL])
+
+Regel 4
+POS
+
+Regel 5
+"positiv"
