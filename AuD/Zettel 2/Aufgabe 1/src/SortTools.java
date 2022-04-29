@@ -1,9 +1,7 @@
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
-public class SortTools extends NumberComparator {
+public class SortTools  {
 
     public static int[] createSequenceInc(int n) {
         int[] out = new int[n];
@@ -52,10 +50,8 @@ public class SortTools extends NumberComparator {
             while (j >= 0 && a[j] > k) {
                 a[j + 1] = a[j];
                 j--;
-
             }
             a[j + 1] = k;
-
         }
         return a;
     }
@@ -90,22 +86,19 @@ public class SortTools extends NumberComparator {
 
     public static void bubbleSortNew(int[] arr) {
 
-        for (int i = arr.length; i > arr.length/2 ; i--) { //braucht nur n/10 - 1 Durchläufe, da wir immer wieder durch ein besser sortiertes Array laufen
+        for (int i = arr.length; i > arr.length / 2; i--) { //braucht nicht n durchläufe, auch nicht n/2 aber is mir zu anstrengend :D
             for (int j = 1; j < i && j < arr.length - 10; j += 1) {
                 int[] temp = insertionSort(Arrays.copyOfRange(arr, j, j + 10));
                 for (int k = 0; k < 10; k++) {
                     arr[k + j] = temp[k];
                 }
-
             }
         }
-        int c = arr[0]; //somehow werden die erse und letzte Stelle nicht mit sortiert sadge
+        int c = arr[0]; //erste und letzte Stelle werden nicht mit sortiert also hier tauschen :D
         arr[0] = arr[arr.length - 1];
         arr[arr.length - 1] = c;
-
-
     }
-
+/*
     public static boolean isSorted(int[] a){
         for (int i = 0; i < a.length-1; i++){
             if(a[i] > a[i+1]){
@@ -114,11 +107,12 @@ public class SortTools extends NumberComparator {
         }
         return true;
     }
+*/
 
     public static <T extends Comparable> void bubbleSortGen(T[] arr) {
         for (int i = arr.length; i > 1; i--) {
             for (int j = 0; j < i - 1; j++) {
-                if (arr[j].compareTo(arr[j + 1]) > 0 ) {
+                if (arr[j].compareTo(arr[j + 1]) > 0) {
                     T k = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = k;
@@ -129,7 +123,6 @@ public class SortTools extends NumberComparator {
 
 
     public static void main(String[] args) {
-
 
 
         int[] a = createSequenceDec(100);
