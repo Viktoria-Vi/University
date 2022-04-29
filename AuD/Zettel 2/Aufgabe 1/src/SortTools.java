@@ -1,4 +1,5 @@
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -88,7 +89,8 @@ public class SortTools extends NumberComparator {
     }
 
     public static void bubbleSortNew(int[] arr) {
-        for (int i = arr.length; i > arr.length/10 ; i--) {
+
+        for (int i = arr.length; i > arr.length/2 ; i--) { //braucht nur n/10 - 1 Durchläufe, da wir immer wieder durch ein besser sortiertes Array laufen
             for (int j = 1; j < i && j < arr.length - 10; j += 1) {
                 int[] temp = insertionSort(Arrays.copyOfRange(arr, j, j + 10));
                 for (int k = 0; k < 10; k++) {
@@ -97,13 +99,10 @@ public class SortTools extends NumberComparator {
 
             }
         }
-            int k = arr[0];
-            arr[0] = arr[arr.length - 1];
-            arr[arr.length - 1] = k;
-        for (int f:
-             arr) {
-            System.out.println(f);
-        }
+        int c = arr[0]; //somehow werden die erse und letzte Stelle nicht mit sortiert sadge
+        arr[0] = arr[arr.length - 1];
+        arr[arr.length - 1] = c;
+
 
     }
 
@@ -116,8 +115,22 @@ public class SortTools extends NumberComparator {
         return true;
     }
 
+    public static <T extends Comparable> void bubbleSortGen(T[] arr) {
+        for (int i = arr.length; i > 1; i--) {
+            for (int j = 0; j < i - 1; j++) {
+                if (arr[j].compareTo(arr[j + 1]) > 0 ) {
+                    T k = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = k;
+                }
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
+
+
 
         int[] a = createSequenceDec(100);
         int[] b = createSequenceDec(1000);
@@ -228,6 +241,7 @@ public class SortTools extends NumberComparator {
         System.out.println("Durchschnittliche Laufzeit j: " + averageJ / 10);
         System.out.println("Durchschnittliche Laufzeit k: " + averageK / 10);
         System.out.println("Durchschnittliche Laufzeit l: " + averageL / 10);
+
 
         /*
         Durchlauf1
@@ -374,6 +388,7 @@ public class SortTools extends NumberComparator {
             Durchschnittliche Laufzeit l: 4718736960
 
         */
+
 
     }
 

@@ -1,0 +1,10 @@
+Input: Array A[1,n] mit natürlichen Zahlen
+Result: Summe der durch 3 teilbaren Zahlen in Array
+
+x = 0
+for i = 0 to n do
+	if A[i] % 3 = 0 then
+		x += A[i]
+return x
+
+Laufzeit n+2
