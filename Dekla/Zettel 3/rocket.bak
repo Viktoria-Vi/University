@@ -1,0 +1,483 @@
+#reader(lib"read.ss""wxme")WXME0109 ## 
+#|
+   This file uses the GRacket editor format.
+   Open this file in DrRacket version 8.0 or later to read it.
+
+   Most likely, it was created by saving a program in DrRacket,
+   and it probably contains a program with non-text elements
+   (such as images or comment boxes).
+
+            http://racket-lang.org/
+|#
+ 34 7 #"wxtext\0"
+3 1 6 #"wxtab\0"
+1 1 8 #"wximage\0"
+2 0 8 #"wxmedia\0"
+4 1 34 #"(lib \"syntax-browser.ss\" \"mrlib\")\0"
+1 0 36 #"(lib \"cache-image-snip.ss\" \"mrlib\")\0"
+1 0 68
+(0
+ #"((lib \"image-core.ss\" \"mrlib\") (lib \"image-core-wxme.rkt\" \"mrl"
+ #"ib\"))\x00"
+) 1 0 16 #"drscheme:number\0"
+3 0 44 #"(lib \"number-snip.ss\" \"drscheme\" \"private\")\0"
+1 0 36 #"(lib \"comment-snip.ss\" \"framework\")\0"
+1 0 79
+(1
+ #"((lib \"srcloc-snip.rkt\" \"framework\") (lib \"wxme-srcloc-snip.rkt"
+ #"\" \"framework\"))\x00"
+) 1 0 93
+(2
+ #"((lib \"collapsed-snipclass.ss\" \"framework\") (lib \"collapsed-snip"
+ #"class-wxme.ss\" \"framework\"))\x00"
+) 0 0 43 #"(lib \"collapsed-snipclass.ss\" \"framework\")\0"
+0 0 19 #"drscheme:sexp-snip\0"
+0 0 29 #"drscheme:bindings-snipclass%\0"
+1 0 101
+(3
+ #"((lib \"ellipsis-snip.rkt\" \"drracket\" \"private\") (lib \"ellipsis"
+ #"-snip-wxme.rkt\" \"drracket\" \"private\"))\x00"
+) 2 0 88
+(4
+ #"((lib \"pict-snip.rkt\" \"drracket\" \"private\") (lib \"pict-snip.rk"
+ #"t\" \"drracket\" \"private\"))\x00"
+) 0 0 55
+#"((lib \"snip.rkt\" \"pict\") (lib \"snip-wxme.rkt\" \"pict\"))\0"
+1 0 34 #"(lib \"bullet-snip.rkt\" \"browser\")\0"
+0 0 25 #"(lib \"matrix.ss\" \"htdp\")\0"
+1 0 22 #"drscheme:lambda-snip%\0"
+1 0 29 #"drclickable-string-snipclass\0"
+0 0 26 #"drracket:spacer-snipclass\0"
+0 0 57
+#"(lib \"hrule-snip.rkt\" \"macro-debugger\" \"syntax-browser\")\0"
+1 0 26 #"drscheme:pict-value-snip%\0"
+0 0 45 #"(lib \"image-snipr.ss\" \"slideshow\" \"private\")\0"
+1 0 38 #"(lib \"pict-snipclass.ss\" \"slideshow\")\0"
+2 0 55 #"(lib \"vertical-separator-snip.ss\" \"stepper\" \"private\")\0"
+1 0 18 #"drscheme:xml-snip\0"
+1 0 31 #"(lib \"xml-snipclass.ss\" \"xml\")\0"
+1 0 21 #"drscheme:scheme-snip\0"
+2 0 34 #"(lib \"scheme-snipclass.ss\" \"xml\")\0"
+1 0 10 #"text-box%\0"
+1 0 32 #"(lib \"text-snipclass.ss\" \"xml\")\0"
+1 0 1 6 #"wxloc\0"
+          0 0 72 0 1 #"\0"
+0 75 1 #"\0"
+0 12 90 -1 90 -1 3 -1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 255 255 255 1 -1 0 9
+#"Standard\0"
+0 75 6 #"Menlo\0"
+0 20 90 -1 90 -1 3 -1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 255 255 255 1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 -1 -1 2 24
+#"framework:default-color\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 150 0 150 0 0 0 -1 -1 2 15
+#"text:ports out\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 150 0 150 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 93 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 255 0 0 0 0 0 -1
+-1 2 15 #"text:ports err\0"
+0 -1 1 #"\0"
+1 0 -1 -1 93 -1 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 175 0 0 0 -1 -1 2 17
+#"text:ports value\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 0 0 175 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1.0 0 92 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 34 139 34 0 0 0 -1
+-1 2 27 #"Matching Parenthesis Style\0"
+0 -1 1 #"\0"
+1.0 0 92 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 34 139 34 0 0 0 -1
+-1 2 1 #"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 38 38 128 0 0 0 -1 -1 2 37
+#"framework:syntax-color:scheme:symbol\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 38 38 128 0 0 0 -1 -1 2 38
+#"framework:syntax-color:scheme:keyword\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 38 38 128 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 194 116 31 0 0 0 -1 -1 2
+38 #"framework:syntax-color:scheme:comment\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 194 116 31 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 41 128 38 0 0 0 -1 -1 2 37
+#"framework:syntax-color:scheme:string\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 41 128 38 0 0 0 -1 -1 2 35
+#"framework:syntax-color:scheme:text\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 41 128 38 0 0 0 -1 -1 2 39
+#"framework:syntax-color:scheme:constant\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 41 128 38 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 132 60 36 0 0 0 -1 -1 2 49
+#"framework:syntax-color:scheme:hash-colon-keyword\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 132 60 36 0 0 0 -1 -1 2 42
+#"framework:syntax-color:scheme:parenthesis\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 132 60 36 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 36
+#"framework:syntax-color:scheme:error\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 36
+#"framework:syntax-color:scheme:other\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 16
+#"Misspelled Text\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 81 112 203 0 0 0 -1 -1 2
+38 #"drracket:check-syntax:lexically-bound\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 81 112 203 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 178 34 34 0 0 0 -1 -1 2 28
+#"drracket:check-syntax:set!d\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 178 34 34 0 0 0 -1 -1 2 37
+#"drracket:check-syntax:unused-require\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 36
+#"drracket:check-syntax:free-variable\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 255 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 68 0 203 0 0 0 -1 -1 2 31
+#"drracket:check-syntax:imported\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 68 0 203 0 0 0 -1 -1 2 47
+#"drracket:check-syntax:my-obligation-style-pref\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 178 34 34 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 0 116 0 0 0 0 -1 -1 2 50
+#"drracket:check-syntax:their-obligation-style-pref\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 0 116 0 0 0 0 -1 -1 2 48
+#"drracket:check-syntax:unk-obligation-style-pref\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 139 142 28 0 0 0 -1 -1 2
+49 #"drracket:check-syntax:both-obligation-style-pref\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 139 142 28 0 0 0 -1 -1 2
+26 #"plt:htdp:test-coverage-on\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 1
+#"\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 1 0 0 0 0 0 0 255 165 0 0 0 0 -1 -1 2 27
+#"plt:htdp:test-coverage-off\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 1 0 0 0 0 0 0 255 165 0 0 0 0 -1 -1 4 1
+#"\0"
+0 70 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1.0 1.0 1.0 1.0 1.0 1.0 0 0 0 0 0 0
+-1 -1 4 4 #"XML\0"
+0 70 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1.0 1.0 1.0 1.0 1.0 1.0 0 0 0 0 0 0
+-1 -1 2 37 #"plt:module-language:test-coverage-on\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 -1 -1 2 38
+#"plt:module-language:test-coverage-off\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 1 0 0 0 0 0 0 255 165 0 0 0 0 -1 -1 0 36
+#"mrlib/syntax-browser:subtitle-color\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 1 0 0 0 0 0 0 36 36 140 255 255 255 -1
+-1 0 42 #"mrlib/syntax-browser:focused-syntax-color\0"
+0 -1 1 #"\0"
+1 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 1 0 0 0 0 0 0 34 139 34 255 255 255 -1
+-1 4 1 #"\0"
+0 71 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1.0 1.0 1.0 1.0 1.0 1.0 0 0 0 0 0 0
+-1 -1 4 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 1 0 0 0 0 0 0 0 0 1.0 1.0 1.0 0 0 255 0 0 0 -1
+-1 4 1 #"\0"
+0 71 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 1 0 0 0 0 0 0 0 0 1.0 1.0 1.0 0 0 255 0 0 0 -1
+-1 4 1 #"\0"
+0 71 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 0 100 0 0 0 0 -1
+-1 2 1 #"\0"
+0 71 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 1.0 1.0 1.0 1.0 1.0 1.0 0 0 0 0 0 0
+-1 -1 2 1 #"\0"
+0 71 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0 0 0 1.0 1.0 1.0 0 100 0 0 0 0 -1
+-1 4 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 255 255 255 -1 -1
+17 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 255 255 255 -1 -1
+24 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 255 255 255 -1 -1
+44 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 255 255 255 -1 -1
+46 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 255 255 255 -1 -1
+0 1 #"\0"
+0 75 10 #"Monospace\0"
+0.0 12 90 -1 90 -1 3 -1 0 1 0 1 0 0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0 255
+255 255 1 -1 2 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 1 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0 255
+255 255 -1 -1 2 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0.0 0.0 0.0 1.0 1.0 1.0 150 0 150 0
+0 0 -1 -1 2 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 93 -1 -1 -1 0 1 0 0 0 0 0.0 0.0 0.0 1.0 1.0 1.0 255 0 0 0 0
+0 -1 -1 2 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 93 -1 -1 0 1 0 0 0 0 0.0 0.0 0.0 1.0 1.0 1.0 0 0 175 0 0
+0 -1 -1 2 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 0 0 0.0 0.0 0.0 1.0 1.0 1.0 0 0 0 0 0 0
+-1 -1 15 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 1 0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0 255
+255 255 -1 -1 14 1 #"\0"
+0 -1 1 #"\0"
+1.0 0 -1 -1 -1 -1 -1 -1 0 0 0 0 1 0 0.0 0.0 0.0 0.0 0.0 0.0 0 0 0 255
+255 255 -1 -1           0 108 0 4 3 85
+(5
+ #";; The first three lines of this file were inserted by DrRacket. They"
+ #" record metadata"
+) 0 0 4 29 1 #"\n"
+0 0 4 3 85
+(6
+ #";; about the language level of this file in a form that our tools can"
+ #" easily process."
+) 0 0 4 29 1 #"\n"
+0 0 4 3 80
+(7
+ #"#reader(lib \"htdp-beginner-reader.ss\" \"lang\")((modname rocket) (r"
+ #"ead-case-sensit"
+) 0 0 4 3 252
+(8
+ #"ive #t) (teachpacks ((lib \"image.rkt\" \"teachpack\" \"2htdp\") (lib"
+ #" \"universe.rkt\" \"teachpack\" \"2htdp\"))) (htdp-settings #(#t cons"
+ #"tructor repeating-decimal #f #t none #f ((lib \"image.rkt\" \"teachpa"
+ #"ck\" \"2htdp\") (lib \"universe.rkt\" \"teachpack\" \"2htdp\")) #f)))"
+) 0 0 4 29 1 #"\n"
+0 0 24 3 1 #"("
+0 0 15 3 6 #"define"
+0 0 24 3 1 #" "
+0 0 14 3 5 #"WIDTH"
+0 0 24 3 1 #" "
+0 0 21 3 3 #"100"
+0 0 24 3 1 #")"
+0 0 24 29 1 #"\n"
+0 0 24 3 1 #"("
+0 0 15 3 6 #"define"
+0 0 24 3 1 #" "
+0 0 14 3 6 #"HEIGHT"
+0 0 24 3 1 #" "
+0 0 21 3 3 #"100"
+0 0 24 3 1 #")"
+0 0 24 29 1 #"\n"
+0 0 24 3 1 #"("
+0 0 15 3 6 #"define"
+0 0 24 3 1 #" "
+0 0 14 3 6 #"MIDDLE"
+0 0 24 3 2 #" ("
+0 0 14 3 1 #"/"
+0 0 24 3 1 #" "
+0 0 14 3 5 #"WIDTH"
+0 0 24 3 1 #" "
+0 0 21 3 1 #"2"
+0 0 24 3 2 #"))"
+0 0 24 29 1 #"\n"
+0 0 24 3 1 #"("
+0 0 15 3 6 #"define"
+0 0 24 3 1 #" "
+0 0 14 3 5 #"MTSCN"
+0 0 24 3 2 #" ("
+0 0 14 3 11 #"empty-scene"
+0 0 24 3 1 #" "
+0 0 14 3 5 #"WIDTH"
+0 0 24 3 1 #" "
+0 0 14 3 6 #"HEIGHT"
+0 0 24 3 2 #"))"
+0 0 24 29 1 #"\n"
+0 0 24 3 1 #"("
+0 0 15 3 6 #"define"
+0 0 24 3 1 #" "
+0 0 14 3 6 #"ROCKET"
+0 0 24 3 1 #" "
+0 2          19 21 1 #"\0"
+2 -1.0 -1.0 0.0 0.0 0           4 500
+(9
+ #"\x89PNG\r\n\x1A\n\x00\x00\x00\rIHDR\x00\x00\x00\x15\x00\x00\x00\x1F\b"
+ #"\x06\x00\x00\x00\b\x8C\x86\xF0\x00\x00\x06\xB1IDATH\x89\xAD\x96\xEFo"
+ #"\x96W\x1D\xC6?\xE7\xDC\xBF\x9E\x1F\xED\xD3B\xD7\x96\x16JA`\x85!C\x18"
+ #"\xDB4\xC6,\xBE\x18!\xA8\x9B\xCB\x12\xDF\x18}\xE3b\xB2W\xC6\x18\xFF"
+ #"\x051&3\xC4\xC5hb\x16\xB3\xC4E\x19\xACF\xB2\x19\x87l\f\x19\x8E9\xB6"
+ #"\xC26(\x05\x06-\xD0\xF6\xE9/\xDA>\xBF\xEE\xE7\xBE\xCF}\xCE\xD7\x17Om"
+ #"\x17\xE3K\xCF\xAB\x93\xF3M\xAE\x9C\xEB\xFA~\xCFu\x1De\\U\xB4Rh\tAA\f"
+ #"\x18\x04\rHf\xC9k\x8D\xB3\x96\xD4Y\x1CB1*Q\xADUiok'\x89\x13rQ\x80F"
+ #"\x01\x80R\xA0PZ)\x0Fq+\x87\x0E\xB4@\x88\x87\xA2\xB5\xF7\xF0\b\x83\x90"
+ #"\xA3/\xFC\x92\x9F\xFF\xEC\b\xE0\xE8hk'i\xC6\xE4\xF3\x11\xFFs\x19I\xC4"
+ #"\xB8X\xC4\xA6\"&\x95\xCC\x191b\xA5\x99\x191\xC6\x88dN^\xFB\xC3+\xD2Q*"
+ #"\xC8\xFA\xAE\x92\x9C>}JD\xAC\xA4iS\x92$\x16k\xAD8\xE7D\xAC\x13q\"\""
+ #"\x02F\x8C\xC4YC$3\"Y&\xD6\x1A\xC9\x9C\x11k\xAD\x88\x15)\x7FvW\xBE\xB6"
+ #"\xFF1i\x8F\"\xF14r\xE8\xD0A\x99\x9B\x9B\x11\x11#\xE2\xD2UP\xE7Z\x88\""
+ #"\x82vh@#\x0EP\x1E\xDA\t.uh\xD1\xB8\xC4q\xE6\xAD\xB3\xDC\x18\xBBE\xE8"
+ #"\xE5\xC0\xC1\xD9\xB3\xE7\xF8\xE8\xA3K \x1AP(Yc\xFD\x9F\xADn\x95<2\xB7"
+ #"\"\xAB\x03%\xAD\xF2\xDD{3\x1C\xFD\xD5oi\xA6B\xB5a\xB0\x04\xC4q\xC6"
+ #"\xF0\xC97\x00\x8DM\xB35@\xB5\x06\xEE\v\x8E\xC0\xF3H\x93\x94 \xF0q\x99"
+ #"E\x87\x11\x99\xC0\xC8\xE8u\xEE7S\xF6}\xF5\t\x94\xAF(\x14\x8B\xDC\xBC;"
+ #"\xCE\xA93\xE7\x19\x1D\xFB\x8C]C\xDB\x10\xE7V\xC1\x1C\xE0\x01>\xD6\xA1"
+ #"<\x1F\xE7\x1C8p\b\xBE\xA7\x883\x18\x1D\xBF\xCB\x91\x17\x7FC"
+) 500
+(10
+ #"e\xB9\xC6\xB5\xB1\xAB\xB4\xAF\xEB\xE4pO7'\x8E\xFF\x91\x7F\x8D\\e\xC7"
+ #"\xF6mxJ\x7F\x8E\xF8\n}_\xB7\xC6\xC7\x0F\"2'\x84\xF9<\xA9@%\x85,\xCCS"
+ #"\xE8\x1D\xE0\xED\x0F.\xF3\x8B\x17^\xE4\xE8\xEF^f\xD1(\xBE\xB0{?sK\r"
+ #"\xD0\xA04(\x14\"k\xC0\x1A\x11\xD2f\x82\xEFk\xFC@\x91&\tZ\xC3{\x17G"
+ #"\xD0mm\xCCT\xEAP\xEC`\xDD\xF6]to\xDEF\xACs\xB8\xB0\xC8B%\xA6\x9E\x80X"
+ #"\x10\xE7PJa2\xD3\xD2T)p\x92\xA1uk\x90\x9Ddh\"\xDE:{\x96\xFE\xA1}\xDC*"
+ #"\xCF\xF1\xE0\x97\x0EP\xEA\xEA\xA5\xD6\xAC\x91\xAA\x80\xAE\xFE\xCDp"
+ #"\x7F\xBA\xD5T\x056\xCB\xD0^\x88\xD6\xBA\xF5\xB0l\xD2\x10\x1DF \x9A"
+ #"\xE5J\x95\x8ER\x91\xA6U<\xFB\xFCO\x98\xAE+\xB6\x0E\xED'\xCA\x95\xC8\a"
+ #"\x01(\xC7\xD8\xC4\x04S\xB7\xC7\xD8\xE8\eN\x9F\xF85\x91@R\xAF\x13\xB5"
+ #"\x17\xB1\xADF)\xBF\xDEl\xD0\x16\xFA\xA4\xC6\x11\x04\x01\x88\xE3\xF4"
+ #"\xDFN\xF1\xD0\x83C\xEC\xEE\x1C`}\xDF\x0E\xA2\xA8\x9D\xB6BD.\x9F\xA7sl"
+ #"\x94\e\xC5\x00;u\x93\xEB\xA3\x93\xEC\x19\xDAH\xE8\xF9-\ts!\xA0\xD0"
+ #"\xED\xA5\x12Y\x96\xA1\xB5\xA6\x90\xCF\xF1\xFE;\xEF\xF0\xFCs?\xA4\xB2"
+ #"\xB0\xC8\xA1'\x9F$\xEF\x87\x94\xA7\xA7y\xFB\xCD\xBF\xF3\xDE\xB9w\xE9"
+ #"\xEC\xEC\xE0\xD1G\x1FA\xE1\xF8\xFE\xF7\xBE\xCB\xDC\xBD\x19T\x18\xE1y"
+ #"\xDEj\xB3tf3D\x04\xDF\xD7,\xCC\xCFsr\xF85\x1AKKl\xE8\xEA\xC2\xD4\x1Ax"
+ #"\x02\xAF\x0F\x0F\xF3\xA7#G\x18~\xF5\x18\x8Bs\xB3\xCC\x97\xA7\tT\xC6"
+ #"\x8D\xB1\xAB\x9C8~\x1C\xB2\f\xCF\xF7W\xDDJ{J\xE3k\x0F\xE5,\xE3\xD7"
+ #"\xAE\xF1\xD7\xBF\xBCA\xCF\xFAn\xFA\x1E\xE8\xC5&\x06%\xD0\xD3\xDB\a["
+ #"\xB6\xB2}\xF7n\xFAzzI\xE2\x06\xBD==\xAC+\xB5s\xEC\xE5\xDF\xB349\t\xD6"
+ #"\x919\xBB\xD2}4\xCAY \xE5\xC2\xA97\xD1F\xF0tDN"
+) 500
+(11
+ #"\xE5\bUH\x10\x19\x0E>\xFD\x14_\x7F\xFA\xDB\xE4\n9\xD2\xDA\x12\x01!K"
+ #"\xCB1*q\xCC\x8F\xDF\xE1\xE6\xA5\xCB\x1C\xD82\x80\x15E\x00\xF8q=!\x1F"
+ #"\x05P\xAD\xF0\xE9\xC7\x9F0\xBF\xB0L\xB4\xBE\x1D?(por\x86\x8B\xD7n\x12"
+ #"\a9\x96\xE2\x94\\.$\xEFRTu\x19%\x9Af#as\xA9\xC0\xE8\xC7\x979\xF0\xD4"
+ #"\xE1\x95\xD7\x05~\x94k\xC3\xD9\x8C$uL\x94\xE7\x90|\x91\xFB\xCD\x84"
+ #"\x91\xB1\xEB\x94\ec\\\xB8r\x83\xBEm;h\x18\xB06\xA16;IWh\x18l\x834K"
+ #"\x98[\xAC3]\x9E\x05\xE5\x13\xF8+\x86\xA2}0\x06\xE6\x16\x97\xB84z\x85"
+ #"\xE5FFg\x7F\x0F\e\a73\xB8\xAE\x8F\xA1\x03_\xC6x\x11s\x8BUr\xA1\xE6"
+ #"\xFA\xA7\x1F\xE25\xE6)P\xC1jGX,01S^u8\xADA7\x9A\x86 \xEFsgj\x82\x85"
+ #"\xEA2\r\x9B\x10\x14Bz7u\xB3is\x1F\xE5\xF2\x1D\xAAK\xB3(\x9B`\x93:\xCA"
+ #"\xA6l\xEA\xEF&*\x04\xD4\xD2:\xB7\x16\xCBLW\x96\xC0\x03+-+\xF4\xF3\xF9"
+ #"\x00g\r\xE7\xFFy\x8E\xBE\xFE\a\xD8\xBEk/\xE4\xD7cM\xCC\xE2\xFC$\xA1"
+ #"\xB2\x14C\xC8E>\xD5\xEA2JRP\x01\v\v\v\xF4\x0F\f\xB085\xC9\xED\xA9\xA9"
+ #"\x96\xA7\xAE\xCC\xA9JMC\x928\xE6\xF5\xE1\xE3\xF4\xF6\xF6\xF2\xC8W\x9E"
+ #"\xE0\xCC\xF9\x0F\x19/WX\xA8e\x8CO\xCD0Y\x9E#q\x1E[\xB7n\xA5k}\x89\xAE"
+ #"\xB6\x90\xEA\xCCm\xBE\xF3\xAD\x83\x8C\xBC\x7F\x9E\x93\x7F>\xC1\xB1"
+ #"\xE3\xAF\xE2y\x1EQ\x14)L\x16\x8BH*\x93\xB7\xAE\x8A\xD8\xA6\x88\xB3"
+ #"\xF2\xD2K\xAF\xC8\x86\xC1\xBDR\xE8}H\xF0\xFA\x85hP\b\xB7\b\x9D\x0FK"
+ #"\xF7\xC3\xDF\x94\xC7\x0E\xFF@\x0E>\xFB\x9C$\"\x92\x89\xC8\x95+\xA3"
+ #"\x12\xC7\xF1ZFi\x9D\x03\t\xE8\xEF\xDF\x02\x12@\xA6\xE9h\xEB\xA0|\xF7"
+ #"\x0E~\xDA\xE4\xF1\xC7\xF7Q\xC8y\x94:\x8B\xEC\xDB3\x84\xAB/3?5M\x7F"
+) 270
+(12
+ #"w\x1F\xCDz\xCB\xEEw\xEE\xDCI\x14\x84\x88m\xA5\x80\xB6\x16\x9C\xB4B"
+ #"\xCF\xA6\x06<x\xE6\x99o\xF0\xD3\x1F\xFF\x88\xAER\x81k#\x17\x88\x97"
+ #"\xA7\xA9\xCCNp\xF3\x93\x8Bd\xD5y\xB6\x0F\xF4\xB0w\xCFN<\xBD\x16$\xA2"
+ #"\xD6rJe\"b\x12C\xE8\x83\xD6\n\xF0AAe9fv\xA6\xCC\a\xEF\xFE\x83z\xADB"
+ #"\xA5\x91\xE0G\x05\xFA\a\xB6\xB0\xEB\x8B\xBB\x19\x1C\xD8@[1\xC2\x8A["
+ #"\xCD'Q\x10\xA2\x95j\x18'\xA1\xAF\xB0I\r\x9C#\xCC\x17pN\xA3\xB5\xC6$"
+ #"\x19A\xA0A9\xB0\n|\x0F\xBB\x92H>\x0E\x93\xC6\xF8~\x80S\x1A\xAB4\x16"
+ #"\xC8\xA3\x95\xD6\xBE\x02\x1Ca\x14\x10j\x01\xB1\xD8\xA4\xD1\xD2&\xF2"
+ #"\xB1Z\x93)\x9F\x86\xE7Q\x130@\xAD\x99\x02\x96 P(\xB1\xE8\x95\xDB\xB6~"
+ #"`\xA03gh\xA6\x8D\x16\x81\xC0\x87,%\xC8\xE5\x10\x81zl\xB0@\xB6B\xCD*"
+ #"\x88\x1DD\xB9pE<\x01\x01\xF5_i\xAA>\x9F\x82\xFF\xAF\xF5oaS\xA4\xE4c,"
+ #"\xD1\x99\x00\x00\x00\x00IEND\xAEB`\x82"
+) 0 0 24 3 2 #" )"
+0 0 24 29 1 #"\n"
+0 0 24 3 1 #"("
+0 0 15 3 6 #"define"
+0 0 24 3 1 #" "
+0 0 14 3 23 #"ROCKET-CENTER-TO-BOTTOM"
+0 0 24 3 2 #" ("
+0 0 14 3 1 #"-"
+0 0 24 3 1 #" "
+0 0 14 3 6 #"HEIGHT"
+0 0 24 3 2 #" ("
+0 0 14 3 1 #"/"
+0 0 24 3 2 #" ("
+0 0 14 3 12 #"image-height"
+0 0 24 3 1 #" "
+0 0 14 3 6 #"ROCKET"
+0 0 24 3 2 #") "
+0 0 21 3 1 #"2"
+0 0 24 3 3 #")))"
+0 0 24 29 1 #"\n"
+0 0 24 3 1 #"("
+0 0 15 3 6 #"define"
+0 0 24 3 2 #" ("
+0 0 14 3 22 #"create-rocket-scene-v7"
+0 0 24 3 1 #" "
+0 0 14 3 6 #"height"
+0 0 24 3 1 #")"
+0 0 24 29 1 #"\n"
+0 0 24 3 1 #"("
+0 0 14 3 11 #"place-image"
+0 0 24 29 1 #"\n"
+0 0 24 3 2 #"  "
+0 0 14 3 6 #"ROCKET"
+0 0 24 29 1 #"\n"
+0 0 24 3 2 #"  "
+0 0 14 3 6 #"MIDDLE"
+0 0 24 29 1 #"\n"
+0 0 24 3 3 #"  ("
+0 0 14 3 2 #"if"
+0 0 24 3 2 #" ("
+0 0 14 3 2 #"<="
+0 0 24 3 1 #" "
+0 0 14 3 6 #"height"
+0 0 24 3 1 #" "
+0 0 14 3 23 #"ROCKET-CENTER-TO-BOTTOM"
+0 0 24 3 1 #")"
+0 0 24 29 1 #"\n"
+0 0 24 3 6 #"      "
+0 0 14 3 6 #"height"
+0 0 24 29 1 #"\n"
+0 0 24 3 6 #"      "
+0 0 14 3 23 #"ROCKET-CENTER-TO-BOTTOM"
+0 0 24 3 2 #") "
+0 0 14 3 5 #"MTSCN"
+0 0 24 3 2 #"))"
+0           0
