@@ -1,0 +1,55 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname A2) (read-case-sensitive #t) (teachpacks ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "image.rkt" "teachpack" "2htdp") (lib "universe.rkt" "teachpack" "2htdp")) #f)))
+; A Masche is either:
+; - a Anfangsschlinge
+; - a Luftmasche
+; - a Stäbchen
+
+(define-struct Anfangsschlinge ())
+; a Anfangsschlinge is (make-Anfangsschlinge)
+; interp.  always the first "Masche" of a "Häkelreihe"
+
+
+(define-struct Luftmasche (predecessor))
+; a Luftmasche is (make-Luftmasche struct)
+; interp. one of two possible "Maschen" after a Anfangsschlinge
+
+(define-struct Stäbchen (predecessor))
+; a Stäbchen is (make-Stäbchen struct)
+; interp. one of two possible "Maschen" after a Anfangsschlinge
+
+
+(define-struct Häkelreihe (masche))
+; a Häkelreihe is (make-Häkelreihe struct)
+; interp. a line of "Maschen"
+
+; a certain Häkelreihe ("-ox|x|=|x|x|")
+(define SOME-HÄKELREIHE (make-Häkelreihe
+                         (make-Luftmasche
+                          (make-Luftmasche
+                           (make-Stäbchen
+                            (make-Luftmasche
+                             (make-Luftmasche
+                              (make-Anfangsschlinge))))))))
+
+(define-struct Häkelschritt (masche predecessor))
+; A Predecessormasche is : (make-Häkelschritt masche Predecessormasche)
+; interp. current Masche and Masche being used in a Häkelschritt before that.
+
+;("-ox|x|=|x|x|")
+(define CERTAIN-HÄKELREIHE
+  (make-Häkelschritt (make-Luftmasche)
+    (make-Häkelschritt (make-Luftmasche)
+      (make-Häkelschritt (make-Stäbchen)
+        (make-Häkelschritt (make-Luftmasche)
+          (make-Häkelschritt (make-Luftmasche)
+            (make-Häkelschritt (make-Anfangsschlinge))))))))
+
+; Masche -> string
+; produces a string representing a "Häkelreihe" with given Masche
+(define (masche->string masche)
+  (cond
+    [(Häckelschritt? masche) ]
+    [(Luftmasche? masche) "x|"]
+    [(Stäbchen? masche) "=|"]))

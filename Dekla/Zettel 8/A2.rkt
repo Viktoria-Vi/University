@@ -1,0 +1,27 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-intermediate-reader.ss" "lang")((modname A2) (read-case-sensitive #t) (teachpacks ((lib "universe.rkt" "teachpack" "2htdp") (lib "image.rkt" "teachpack" "2htdp"))) (htdp-settings #(#t constructor repeating-decimal #f #t none #f ((lib "universe.rkt" "teachpack" "2htdp") (lib "image.rkt" "teachpack" "2htdp")) #f)))
+(define (fib n)
+  (cond
+    [(and (<= 1 n) (<= n 2)) 1]
+    [else (+ (fib (- n 1)) (fib (- n 2)))]
+    )
+  )
+
+(define (fib/fast n)
+  (if (or (= n 1) (= n 2)) 1
+  (local [(define (fib/akk n pred1 pred2)
+            (if (= 3 n)
+                (+ pred1 pred2)
+                (fib/akk (sub1 n) pred2 (+ pred1 pred2))
+                )
+            )]
+    (fib/akk n 1 1)
+    )
+  )
+  )
+
+
+(time (fib 25)) ;zwei rekursive Aufrufe die baumartig wachsen
+(time (fib/fast 25)) ;linearer einzelner rekursiver Aufruf
+
