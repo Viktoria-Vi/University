@@ -28,7 +28,7 @@ public final class TexasHoldemCombination implements Comparable<TexasHoldemCombi
 
     // a)
     TexasHoldemCombination(List<CardDeck52.Card> tableCards, TexasHoldemHand hand) {
-        // TODO
+
 
     }
 
