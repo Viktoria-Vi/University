@@ -23,8 +23,12 @@ public class SingleAttributeEquality implements RecordSimilarity {
      * @return 1 if r1 and r2 are equal at position {@link #attributeIndex}, else 0
      */
     @Override
-    public double compare(Record r1, Record r2) {
+    public double compare(Record r1, Record r2)  {
         double res = 0;
+        if(attributeIndex > r1.getContent().size() || attributeIndex < 0 ||
+                r1.getContent().size() != r2.getContent().size()){
+            throw new IllegalArgumentException();
+        }
         if(r1.getContent().get(attributeIndex).equals(r2.getContent().get(attributeIndex))){
             res = 1;
         }

@@ -46,7 +46,7 @@ class Task1 {
         System.out.println("Creating SingleAttributeEquality for name comparison (attributeIndex: 1)...");
         SingleAttributeEquality nameAttributeEquality = new SingleAttributeEquality(1);
         System.out.println("Applying NaiveDetection with SingleAttributeEquality...");
-        Set<Duplicate> duplicates = new NaiveDetection(1).detect(inputTable, nameAttributeEquality);
+        Set<Duplicate> duplicates = new NaiveDetection(0).detect(inputTable, nameAttributeEquality);
         Score s = performance.evaluate(duplicates);
         System.out.println("Expected results: Precision 0.931, Recall: 0.732, F1-Score: 0.820");
         assertEquals(s.getPrecision(), 0.931, 0.05);

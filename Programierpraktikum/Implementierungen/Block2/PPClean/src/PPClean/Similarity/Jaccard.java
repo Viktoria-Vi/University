@@ -19,20 +19,31 @@ public class Jaccard implements StringSimilarity {
 
     /**
      * Calculates Jaccard String similarity for x and y, using ngrams of length {@link #n}
+     *
      * @param x
      * @param y
      * @return Similarity score in range [0,1]
      */
     @Override
     public double compare(String x, String y) {
-        double res = 0;
+
         Set<String> ngramsX = new HashSet<>();
         Set<String> ngramsY = new HashSet<>();
-        // BEGIN SOLUTION
+        int i = 0;
+            while (i + n <= x.length()) {
+                ngramsX.add(x.substring(i, i + n));
+                i++;
+            }
+            i = 0;
+            while (i + n <= y.length()) {
+                ngramsY.add(y.substring(i, i + n));
+                i++;
+            }
 
+        Set<String> ngramsXCopy = new HashSet<>(ngramsX);
+        ngramsXCopy.retainAll(ngramsY);
+        ngramsX.addAll(ngramsY);
 
-
-        // END SOLUTION
-        return res;
+        return (double) ngramsXCopy.size()/(double) ngramsX.size();
     }
 }

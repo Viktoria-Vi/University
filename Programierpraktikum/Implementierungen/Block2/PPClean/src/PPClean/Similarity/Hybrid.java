@@ -28,19 +28,31 @@ public class Hybrid implements RecordSimilarity {
     /**
      * Compares two Records attribute by attribute according to {@link #policies}.
      * For Jaccard similarity, a default window size of {@link #JACCARD_N} is used
+     *
      * @param r1
      * @param r2
      * @return Similarity score in range [0,1] (1=same, 0=very different)
      */
     @Override
-    public double compare(Record r1, Record r2) {
+    public double compare(Record r1, Record r2) throws IndexOutOfBoundsException {
+        if (policies.size() != r1.getContent().size() || policies.size() != r2.getContent().size()) {
+            throw new IndexOutOfBoundsException();
+        }
         double res = 0;
-        // BEGIN SOLUTION
-
-
-
-        // END SOLUTION
-        return res;
+        int divisor = policies.size();
+        for (int i = 0; i < policies.size(); i++) {
+            if (policies.get(i) == null) {
+                res++;
+                continue;
+            }
+            if (policies.get(i).equals("L")) {
+                res += jaccard.compare(r1.getContent().get(i), r2.getContent().get(i));
+            }
+            if (policies.get(i).equals("J")) {
+                res += levenshtein.compare(r1.getContent().get(i), r2.getContent().get(i));
+            }
+        }
+        return res / (double) (divisor);
     }
 }
 
