@@ -1,7 +1,7 @@
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 public class StreamingJava {
     // Aufgabe 2) a)
     public static <E> Stream<E> flatStreamOf(List<List<E>> list) {
-        return list.stream().flatMap(l -> l.stream().flatMap(m -> List.of(m).stream()));
+        return list.stream().flatMap(l -> l.stream());
     }
 
     // Aufgabe 2) b)
@@ -54,16 +54,14 @@ public class StreamingJava {
     public static Stream<String> fileLines(String path) {
         ArrayList<String> strings = new ArrayList<>();
         try {
-            BufferedReader reader = Files.newBufferedReader(Paths.get("NaturalGasBilling.csv"));
-            reader.readLine();
-            Stream<String> out = reader.lines();
-            reader.close();
+            BufferedReader reader = Files.newBufferedReader(Paths.get(path));
+            Stream<String> out = reader.lines().skip(1);
+            reader.close();   //Exc. "Reader closed" beim Aufruf
             System.out.println("Reader Closed");
             return out;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     // Aufgabe 3) b)
@@ -89,8 +87,8 @@ public class StreamingJava {
             BufferedReader reader = new BufferedReader(new InputStreamReader((InputStream) stream));
             String line = reader.readLine();
             while (line != null) {
-                if (Objects.equals(line.split(",")[11], "") || Objects.equals(line.split(",")[11], "0")) {
-                    CEL.add(line.split(",")[11]);
+                if (Objects.equals(line.split(",")[10], "") || Objects.equals(line.split(",")[10], "0")) {
+                    CEL.add(line.split(",")[10]);
                 }
                 reader.readLine();
             }
@@ -107,11 +105,11 @@ public class StreamingJava {
                                     double commodityCharges, double tax, double cleanEnergyLevy,
                                     double carbonTax, double amount) {
 
-        public NaturalGasBilling (LocalDate invoiceDate, LocalDate fromDate, LocalDate toDate, int billingDays,
-        double billedGJ, double basicCharge, double deliveryCharges,
-        double storeAndTransport,
-        double commodityCharges, double tax, double cleanEnergyLevy,
-        double carbonTax, double amount) {
+        public NaturalGasBilling(LocalDate invoiceDate, LocalDate fromDate, LocalDate toDate, int billingDays,
+                                 double billedGJ, double basicCharge, double deliveryCharges,
+                                 double storeAndTransport,
+                                 double commodityCharges, double tax, double cleanEnergyLevy,
+                                 double carbonTax, double amount) {
             this.invoiceDate = invoiceDate;
             this.fromDate = fromDate;
             this.toDate = toDate;
@@ -129,7 +127,7 @@ public class StreamingJava {
         }
 
         public NaturalGasBilling(String[] strings) {
-                    this(LocalDate.parse(strings[0]),
+            this(LocalDate.parse(strings[0]),
                     LocalDate.parse(strings[1]),
                     LocalDate.parse(strings[2]),
                     Integer.parseInt(strings[3]),
@@ -143,33 +141,94 @@ public class StreamingJava {
                     Double.parseDouble(strings[11]),
                     Double.parseDouble(strings[12]));
         }
-    }
 
-    public static Stream<NaturalGasBilling> orderByInvoiceDateDesc(Stream<String> stream) {
-        return stream.map(line -> {
-                    NaturalGasBilling naturalGasBilling = null;
-            naturalGasBilling = new NaturalGasBilling(Arrays.stream(line.split(","))
-                    .map(str -> str.isEmpty() ? "0" : str).toArray(String[]::new));
-            return naturalGasBilling;
-                }
-        ).sorted(Comparator.comparing(NaturalGasBilling::invoiceDate).reversed());
-    }
 
-    // Aufgabe 3) e)
-    // TODO: Implement object method: "Stream<Byte> toBytes()" for record "NaturalGasBilling".
+        public static Stream<NaturalGasBilling> orderByInvoiceDateDesc(Stream<String> stream) {
+            return stream.map(line -> {
+                        NaturalGasBilling naturalGasBilling = null;
+                        naturalGasBilling = new NaturalGasBilling(Arrays.stream(line.split(","))
+                                .map(str -> str.isEmpty() ? "0" : str).toArray(String[]::new));
+                        return naturalGasBilling;
+                    }
+            ).sorted(Comparator.comparing(NaturalGasBilling::invoiceDate).reversed());
+        }
 
-    // Aufgabe 3) f)
-    // TODO: Implement static method: "Stream<Byte> serialize(Stream<NaturalGasBilling> stream)".
+        // Aufgabe 3) e)
+        public Stream<Byte> toBytes() {
 
-    // Aufgabe 3) g)
-    // TODO: Implement static method: "Stream<NaturalGasBilling> deserialize(Stream<Byte> stream)".
-    // TODO: Execute the call: "deserialize(serialize(orderByInvoiceDateDesc(fileLines(Datei aus f))))"
-    // TODO: in a main Method and print the output to the console.
+            return Stream.of(Byte.parseByte(invoiceDate.toString()), //falsches Format
+                    Byte.parseByte(toDate.toString()),
+                    Byte.parseByte(fromDate.toString()),
+                    Byte.parseByte(String.valueOf(billingDays)),
+                    Byte.parseByte(String.valueOf(billedGJ)),
+                    Byte.parseByte(String.valueOf(basicCharge)),
+                    Byte.parseByte(String.valueOf(deliveryCharges)),
+                    Byte.parseByte(String.valueOf(storeAndTransport)),
+                    Byte.parseByte(String.valueOf(commodityCharges)),
+                    Byte.parseByte(String.valueOf(tax)),
+                    Byte.parseByte(String.valueOf(cleanEnergyLevy)),
+                    Byte.parseByte(String.valueOf(carbonTax)),
+                    Byte.parseByte(String.valueOf(amount)));
+        }
 
-    // Aufgabe 3) h)
-    public static Stream<File> findFilesWith(String dir, String startsWith, String endsWith, int maxFiles) {
-        // TODO
+        // Aufgabe 3) f)
+        public static Stream<Byte> serialize(Stream<NaturalGasBilling> stream) {
+            Stream<Byte> out = mergeStreamsOf(stream.map(NaturalGasBilling::toBytes));
+            try {
+                FileOutputStream file = new FileOutputStream("NGBOrdered.csv");
+                DataOutputStream data = new DataOutputStream(file);
+                data.writeBytes("Invoice Date,From Date,To Date,Billing Days,Billed GJ,Basic charge,Delivery charges,Storage and transport,Commodity charges,Tax,Clean energy levy,Carbon tax,Amount\n");
+                out.forEach(b -> {
+                    try {
+                        data.writeByte(b);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                data.flush();
+                data.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
-        return null;
+            return out;
+        }
+
+        // Aufgabe 3) g)
+        static Stream<NaturalGasBilling> deserialize(Stream<Byte> stream) {
+            Stream<String> out = stream.skip(1).map(Object::toString);
+            return out.map(line -> {
+                NaturalGasBilling naturalGasBilling = null;
+                naturalGasBilling = new NaturalGasBilling(Arrays.stream(line.split(","))
+                        .map(str -> str.isEmpty() ? "0" : str).toArray(String[]::new));
+                return naturalGasBilling;
+            });
+        }
+
+        // Aufgabe 3) h)
+        public static Stream<File> findFilesWith(String dir, String startsWith, String endsWith, int maxFiles) {
+            List<Path> result;
+            Path path = Paths.get(dir);
+            try {
+                return Files.walk(path)
+                        .map(Path::toFile)
+                        .filter(File::isFile)
+                        .filter(f -> (f.getName().startsWith(startsWith) && f.getName().endsWith(endsWith)))
+                        .sorted(Comparator.comparing(File::length).reversed())
+                        .limit(maxFiles);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("test");
+            return null;
+        }
+
+
+        public static void main(String[] args) {
+
+            System.out.println(serialize(orderByInvoiceDateDesc(fileLines("NaturalGasBilling.csv"))));
+            System.out.println(deserialize(serialize(orderByInvoiceDateDesc(fileLines("NaturalGasBilling.csv")))));
+        }
     }
 }
+

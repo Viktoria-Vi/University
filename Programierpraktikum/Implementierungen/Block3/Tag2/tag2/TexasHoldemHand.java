@@ -2,6 +2,7 @@ package tag2;
 
 import tag2.tools.CardDeck52;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TexasHoldemHand {
@@ -36,5 +37,17 @@ public class TexasHoldemHand {
 	@Override
 	public final String toString() {
 		return "[" + this.card1 + ", " + this.card2 + "]";
+	}
+
+	public static void main(String[] args) {
+		ArrayList<Integer> test = new ArrayList();
+		test.add(1);
+		test.add(1);
+		test.add(1);
+		test.add(1);
+		test.add(1);
+		test.add(1);
+
+		System.out.println(test);
 	}
 }
