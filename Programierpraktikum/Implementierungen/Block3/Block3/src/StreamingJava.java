@@ -55,9 +55,7 @@ public class StreamingJava {
         ArrayList<String> strings = new ArrayList<>();
         try {
             BufferedReader reader = Files.newBufferedReader(Paths.get(path));
-            Stream<String> out = reader.lines().skip(1);
-            reader.close();   //Exc. "Reader closed" beim Aufruf
-            System.out.println("Reader Closed");
+            Stream<String> out = reader.lines().skip(1).onClose(() -> System.out.println("Reader Closed"));
             return out;
         } catch (IOException e) {
             throw new RuntimeException(e);
