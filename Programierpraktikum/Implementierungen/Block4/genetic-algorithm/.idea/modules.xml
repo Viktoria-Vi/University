@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../ga.framework/Tag1/ga.framework.iml" filepath="$PROJECT_DIR$/../ga.framework/Tag1/ga.framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tag1/ga.framework.iml" filepath="$PROJECT_DIR$/Tag1/ga.framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ga.problems/ga.problems.iml" filepath="$PROJECT_DIR$/ga.problems/ga.problems.iml" />
       <module fileurl="file://$PROJECT_DIR$/genetic-algorithm.iml" filepath="$PROJECT_DIR$/genetic-algorithm.iml" />
     </modules>
   </component>

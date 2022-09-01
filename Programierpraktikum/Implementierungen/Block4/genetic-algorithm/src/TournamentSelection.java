@@ -9,6 +9,11 @@ Aufgabe 1.3
  */
 public class TournamentSelection implements SelectionOperator {
 
+    public static SelectionOperator selectionOperator;
+
+    TournamentSelection(){
+        selectionOperator = this;
+    }
     @Override
     public Solution selectParent(List<Solution> candidates) { //wählt aus zwei zufälligen das mit der höheren fitness
         Random random = new Random();
