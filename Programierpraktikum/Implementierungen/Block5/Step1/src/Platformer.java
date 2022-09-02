@@ -3,7 +3,6 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.Serial;
-import java.nio.Buffer;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
@@ -61,7 +60,7 @@ public class Platformer extends JFrame {
         Graphics2D g2d = (Graphics2D) g;
         Level level = new Level(levelImg);
         level.drawLevel();
-        BufferedImage img = level.outImage;
+        BufferedImage img = level.outputImage;
         g2d.drawImage(img, xVal, yVal, this);
         this.addKeyListener(new KeyAdapter() {
             @Override
@@ -69,7 +68,6 @@ public class Platformer extends JFrame {
                 moveImg(e);
             }
         });
-
     }
 
     public void moveImg(KeyEvent event) {
