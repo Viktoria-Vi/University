@@ -1,18 +1,13 @@
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serial;
-import java.util.NoSuchElementException;
 
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
+import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -75,8 +70,8 @@ public class Platformer extends JFrame {
 
     private void updateGameStateAndRepaint() {
         getPlayer().getBounds();
-        checkCollision();
         l.update();
+        checkCollision();
         repaint();
     }
 
@@ -116,7 +111,7 @@ public class Platformer extends JFrame {
             }
         }
     }
-
+    
     public class AL extends KeyAdapter {
         Platformer p;
 
