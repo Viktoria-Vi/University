@@ -1,0 +1,14 @@
+pen up
+color #cc0000
+move 140 550
+pen down
+move 400 100
+move 660 550
+pen up
+move 550 350
+pen down
+move 250 350
+pen up
+move 400 400
+pen down
+circle 300

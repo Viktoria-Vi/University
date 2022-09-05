@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.stream.Stream;
 
 public class GUI extends JFrame {
 
@@ -29,6 +28,7 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String input = textArea.getText();
                 paintArea.donatello.interpret(input);
+                repaint();
             }
         });
 
