@@ -9,7 +9,11 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 public class Player {
+    boolean jumping = false;
     boolean facingLeft = false;
+    boolean falling = true;
+    boolean walkingRight = false;
+    boolean walkingLeft= false;
 
     Vec2 pos;
     Vec2 posLastFrame;
@@ -29,7 +33,7 @@ public class Player {
     Level l;
 
     Player(Level l) {
-        this.pos = new Vec2(0, 0);
+        this.pos = new Vec2(300, 300);
         this.posLastFrame = new Vec2(0, 0);
         this.gravity = new Vec2(0, 0.35f);
         this.movementSpeed = 7.5f;
@@ -122,4 +126,22 @@ public class Player {
         return tilesWalk.get(displayedAnimationState);
 
     }
-}
+
+    public void update(){
+        if (falling){
+            pos.y += movementSpeed;
+        }
+        if (walkingLeft){
+            move(-1, 0);
+        }
+        if(walkingRight){
+            move(1, 0);
+        }
+        if (jumping){
+            for (int i = 0; i < 10;i++){
+                move(0,-1);
+            }
+            jumping = false;
+        }
+        }
+    }

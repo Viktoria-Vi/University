@@ -8,10 +8,11 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
 import java.io.Serial;
+import java.util.TimerTask;
 
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
+import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -23,6 +24,8 @@ public class Platformer extends JFrame {
     private Player p = null;
     private Level l = null;
     BufferStrategy bufferStrategy;
+
+    Timer timer = new Timer();
 
     public Platformer() {
         //exit program when window is closed
@@ -62,20 +65,25 @@ public class Platformer extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                updateGameStateAndRepaint();
+            }
+        }, 10, 10);
     }
 
     private void restart() throws IOException {
-        p.pos.x = 0;
-        p.pos.y = 0;
+        p.pos.x = 300;
+        p.pos.y = 400;
         l.offsetX = 0;
         l.initLevel();
     }
 
     private void updateGameStateAndRepaint() {
         l.update();
+        getPlayer().update();
         checkCollision();
-
         repaint();
     }
 
@@ -88,28 +96,33 @@ public class Platformer extends JFrame {
             p.updateBoundingBox();
             Vec2 overlapSize = tile.bb.OverlapSize(p.boundingBox);
 
-			float epsilon = 8.f; // experiment with this value. If too low,the player might get stuck when walking over the
-			                     // ground. If too high, it can cause glitching inside/through walls
+            float epsilon = 15f; // experiment with this value. If too low,the player might get stuck when walking over the
+            // ground. If too high, it can cause glitching inside/through walls
 
             if (overlapSize.x >= 0 && overlapSize.y >= 0 && Math.abs(overlapSize.x + overlapSize.y) >= epsilon) {
 
                 if (Math.abs(overlapSize.x) > Math.abs(overlapSize.y)) {// Y overlap correction
 
                     if (p.boundingBox.min.y + p.boundingBox.max.y > tile.bb.min.y + tile.bb.max.y) { // player comes from below
-                        System.out.println("collision top");
+                        p.jumping = true;
                     } else { // player comes from above
-                        System.out.println("collision down");
+                        p.falling = false;
                     }
                 } else { // X overlap correction
                     if (p.boundingBox.min.x + p.boundingBox.max.x > tile.bb.min.x + tile.bb.max.x) { // player comes from right
-                        System.out.println("collision left");
+                        p.walkingRight = false;
+                        getPlayer().move(1, 0);
+
                     } else { // player comes from left
-                        System.out.println("collision right");
+                        p.walkingLeft = false;
+                        getPlayer().move(-1, 0);
+
                     }
                 }
 
                 p.updateBoundingBox();
             }
+
         }
     }
 
@@ -150,6 +163,29 @@ public class Platformer extends JFrame {
         }
 
         @Override
+        public void keyReleased(KeyEvent event) {
+            int keyCode = event.getKeyCode();
+            Player player = p.getPlayer();
+
+            if (keyCode == KeyEvent.VK_UP) {
+                player.jumping = false;
+                player.falling = true;
+            }
+            if (keyCode == KeyEvent.VK_LEFT) {
+                player.walkingLeft = false;
+                player.falling = true;
+                player.move(0, -1);
+
+            }
+            if (keyCode == KeyEvent.VK_RIGHT) {
+                player.walkingRight = false;
+                player.falling = true;
+                player.move(0, -1);
+
+            }
+        }
+
+        @Override
         public void keyPressed(KeyEvent event) {
             int keyCode = event.getKeyCode();
             Player player = p.getPlayer();
@@ -159,19 +195,21 @@ public class Platformer extends JFrame {
             }
 
             if (keyCode == KeyEvent.VK_UP) {
-                player.move(0, -1);
+                player.jumping = true;
+
             }
 
             if (keyCode == KeyEvent.VK_DOWN) {
-                player.move(0, 1);
+                player.move(0, 0);
+
             }
 
             if (keyCode == KeyEvent.VK_LEFT) {
-                player.move(-1, 0);
+                player.walkingLeft = true;
             }
 
             if (keyCode == KeyEvent.VK_RIGHT) {
-                player.move(1, 0);
+                player.walkingRight = true;
             }
 
 
@@ -182,6 +220,7 @@ public class Platformer extends JFrame {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+
             }
             updateGameStateAndRepaint();
         }
