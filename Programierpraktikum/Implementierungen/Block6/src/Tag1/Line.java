@@ -3,7 +3,7 @@ package Tag1;
 import java.awt.*;
 
 public class Line {
-    int startX,startY,endX,endY;
+    final int startX,startY,endX,endY;
     Color color;
 
     public Line(int startX, int startY, int endX, int endY){
