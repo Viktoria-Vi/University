@@ -69,6 +69,7 @@ public class DVDBounce {
                 xSpeed *= -1;
                 ySpeed *= -1;
             }
+            default -> throw new IllegalArgumentException("Unexpected value: " + collision);
         }
     }
 
