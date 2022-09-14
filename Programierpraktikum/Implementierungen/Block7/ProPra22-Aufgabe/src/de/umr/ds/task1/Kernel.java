@@ -45,8 +45,6 @@ public class Kernel {
         if (height > imageWidth || width > imageHeight) {
             throw new IllegalArgumentException("Minimum Image size must be: " + height + " x " + width);
         }
-        int offsetX = (width - 1) / 2;
-        int offsetY = (height - 1) / 2;
 
         int filteredImageWidth = imageWidth - width + 1;
         int filteredImageHeight = imageHeight - height + 1;

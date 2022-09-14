@@ -10,12 +10,12 @@ public class TextClient {
 	public static void main(String[] args) {
 		try {
 			InetAddress addr;
-			Socket socket = new Socket("dsgw.mathematik.uni-marburg.de", 32823);
+			Socket socket = new Socket(InetAddress.getLocalHost(), 6000);
 			addr = socket.getInetAddress();
 			System.out.println("Connected to " + addr);
 
 			OutputStream output = socket.getOutputStream();
-			PrintStream writer = new PrintStream(output, true);
+			PrintStream printStream = new PrintStream(output, true);
 			Scanner inputScanner = new Scanner(System.in);
 
 
@@ -24,13 +24,10 @@ public class TextClient {
 
 			while(true) {
 				String inputStream = inputScanner.nextLine();
-				writer.println(inputStream);
-
-				System.out.println(reader.readLine());   // reads a line of text
+				printStream.println(inputStream);
+				System.out.println(reader.readLine());
 
 			}
-
-
 
 		}
 		catch (IOException e) {

@@ -80,7 +80,7 @@ public class ImageProcessing {
     }
 
 
-    // TODO Task 1g)
+
 
 
     public static void main(String[] args) {

@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.Executors;
 
 public class EchoServer {
 
@@ -14,21 +15,31 @@ public class EchoServer {
 
         try (ServerSocket serverSocket = new ServerSocket(6000)) {
             System.out.println("Waiting for connection.....");
-			Socket clientSocket = serverSocket.accept();
-            System.out.println("Connected to client");
-            try (BufferedReader br = new BufferedReader(
-                    new InputStreamReader(
-                            clientSocket.getInputStream()));
-                 PrintWriter out = new PrintWriter(
-                         clientSocket.getOutputStream(), true)) {
-                String inputLine;
-                while ((inputLine = br.readLine()) != null) {
-                    System.out.println("Server: " + inputLine);
-                    out.println(inputLine);
-                }
+            serverSocket.setReuseAddress(true);
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("Connected to new client" + clientSocket.getInetAddress().getHostAddress());
+                Executors.newFixedThreadPool(2);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try (BufferedReader br = new BufferedReader(
+                                new InputStreamReader(
+                                        clientSocket.getInputStream()));
+                             PrintWriter out = new PrintWriter(
+                                     clientSocket.getOutputStream(), true)) {
+                            String inputLine;
+                            while ((inputLine = br.readLine()) != null) {
+                                System.out.println("Server: " + inputLine);
+                                out.println(inputLine);
+                            }
 
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                    }
+                }).start();
             }
         } catch (IOException ex) {
             throw new RuntimeException(ex);
