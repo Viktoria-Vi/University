@@ -1,5 +1,5 @@
 ```java
-double myCalculation(final double base, final int exponent) {
+double pow(final double base, final int exponent) {
 	double result = 1;
 	if (exponent < 0) {
 		int number = exponent * -1;
@@ -18,8 +18,8 @@ double myCalculation(final double base, final int exponent) {
 	}
 }
 
-void myTest() {
-	final boolean b = myCalculation (15, 5) == 759375;
+void test() {
+	final boolean b = pow(15, 5) == 759375;
 	if (b) {
 		System.out.println ("Test passed");
 	} else {
@@ -86,7 +86,7 @@ postage(354, 251, 51, 1001);
 double piIterative(int n) {
 	double pi = 0.0;
 	while (n >= 0) {
-		pi = pi + ((Math.sqrt(12.0) * (Math.pow( -1.0/3.0,n) / ((2 * n) + 1)));
+		pi += ((Math.sqrt(12.0) * (Math.pow( -1.0/3.0,n) / ((2 * n) + 1)));
 		 n --;
 	}
 	return pi;

@@ -14,7 +14,8 @@ static double testCircuit() {
 ```
 
 ```java
-import java.util.Arrays;static int[] primesUpTo(int n) {
+import java.util.Arrays;
+static int[] primesUpTo(int n) {
     if (n < 0) { //primesUpTo nimmt keine negativen Werte an
         return null;
     }

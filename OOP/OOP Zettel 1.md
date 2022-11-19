@@ -13,13 +13,15 @@ Squirtle
 jshell> System.out.println(42+23);
 65
 
+Erwartung: ja wird halt "4223" unso
+
 jshell> System.out.println("42"+"23");
 4223
 
-jshell> System.out.println("Hello World"+System.currentTimeMillis());
-Hello World1635605520689
+jshell> System.out.println("Hello World "+System.currentTimeMillis());
+Hello World 1635605520689
 
-jshell>/
+jshell>/v
 
 ------------------------
 
@@ -34,6 +36,8 @@ pi ==> 3.14
 
 jshell> int product = (42*23)
 product ==> 966
+
+Erwartung:  alle werden true :)
 
 jshell> thirtyfive == 5*7
 $5 ==> true
@@ -86,6 +90,16 @@ Wenn (Neues aktuelles Geld geteilt durch X)<1 Dann Springt man zum nächsten X
 Reihenfolge der X-Werte: 200,100,50,20,10,5,2,1
 Wenn der Fall eintrifft (Neues Aktuelles Geld geteilt durch x)>=1 Wird der Vorgang neu gestartet mit X=200 und 
 Das Ganze wird wiederholt bis Aktuelles Geld=0
+
+Tests:
+
+Eingabe 5€ (maximalbetrag)
+Eingabe 6€ (überschrittender maximalbetrag)
+
+Eingabe 0.72€ (geneuer betrag ohne rückgeld)
+Eingabe 0.73€ (beliebiger betrag mit rückgeld)
+
+Eingabe 0.71€(unzureichender betrag)
 
 
 

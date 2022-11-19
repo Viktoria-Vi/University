@@ -158,18 +158,18 @@ System.out.println();
 
 a)
 
-testPassed: Zeile 1-9
-output: Zeile 2-9
+testPassed: Zeile 1-10
+output: Zeile 3-10
 
 b)
 
 i: Zeile 1-7
-output: 2-6
+output: 2-7
 
 c)
 
 testPassed: 1-9
-output: 3-9
+output: 3-5,7-9
 
 
 
