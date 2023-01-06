@@ -80,8 +80,7 @@
                 } else {
                     return false; //wenn ein Fehler ist es Falsch
                 }
-            }
-            if (ascending == false) { //wenn die Zahlen absteigend sind (3,2,1)
+            } else { //(ascending == false) wenn die Zahlen absteigend sind (3,2,1)
                 if (numbers[0] >= numbers[1]) { //ist 3 größer 2?
                     float[] newNumbers = new float[numbers.length - 1]; //Hier unterscheidet sich gar nichts von oben
                     System.arraycopy(numbers, 1, newNumbers, 0, newNumbers.length);
@@ -93,7 +92,6 @@
                     return false;
                 }
             }
-            return ascending;//pseudo return das nie aufgerufen wird
         }
 
 ```
@@ -130,8 +128,8 @@ import java.util.Arrays;static double distance(double[] gps) {
     }
 
     static double[] partialGPS(double[] gps, double[] start, double[] end) {
-        int startingPoint = 0; //Initialisiere Start und end Index für nachher
-        int endingPoint = 0;
+        int startingPoint = -1; //Initialisiere Start und end Index für nachher
+        int endingPoint = -1;
         if (start == null || end == null) {
             return gps;
         }

@@ -1,39 +1,47 @@
 class Main {
 
-    //int to binary
-    public static String toBinary(int n) {
-        String binary = "";
-        while (n > 0) {
-            binary = (n % 2) + binary;
-            n = n / 2;
+    String toBinary(int n) {
+        if (n == 0) {
+            return "";
         }
-        return binary;
+        return (toBinary(n / 2) + n % 2);
     }
 
-    //int to octal
-    public static String toOctal(int n) {
-        String octal = "";
-        while (n > 0) {
-            octal = (n % 8) + octal;
-            n = n / 8;
+    String toTwosComplement(int n) { //Weil nur 8 bit dargestellt werden können hier die Fehlermeldung
+        String result = "";
+        if (n > 127 || n < -128) {
+            return "ERROR! Not convertible in 8-Bit.";
         }
-        return octal;
-    }
-
-    //int to hexadecimal
-    public static String toHexadecimal(int n) {
-        String hexadecimal = "";
-        while (n > 0) {
-            hexadecimal = (n % 16) + hexadecimal;
-            n = n / 16;
+        if (n >= 0) {
+            result += toBinary(n);
+            while (result.length() < 8) {
+                result = "0" + result;
+            }
+            return result;
+        } else {
+            String complement = "";
+            n++;
+            result += toBinary(-n);
+            while (result.length() < 8) {
+                result = "0" + result;
+            }
+            for (int i = 0; i < result.length(); i++) {
+                if (result.charAt(i) == '0') {
+                    complement += '1';
+                } else {
+                    complement += '0';
+                }
+            }
+            return complement;
         }
-        return hexadecimal;
     }
 
     public static void main(String[] args) {
-        int n = 10;
-        System.out.println(toBinary(n));
-        System.out.println(toOctal(n));
-        System.out.println(toHexadecimal(n));
+        Main m = new Main();
+        System.out.println(m.toTwosComplement(0));
+        System.out.println(m.toTwosComplement(1));
+        System.out.println(m.toTwosComplement(-1));
+        System.out.println(m.toTwosComplement(127));
+        System.out.println(m.toTwosComplement(-128));
     }
 }

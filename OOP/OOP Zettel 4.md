@@ -82,34 +82,43 @@ String toOctal(int n) {
 }
 ```
 ```java
-static String toTwosComplement(int n) { //Weil nur 8 bit dargestellt werden können hier die Fehlermeldung
+String toTwosComplement(int n) { //Weil nur 8 bit dargestellt werden können hier die Fehlermeldung
+        String result = "";
         if (n > 127 || n < -128) {
             return "ERROR! Not convertible in 8-Bit.";
         }
-        n += 1;    //Hier das +1 für das Zweierkomplement
-
-        if (n < 0) { //invertieren wenn n negativ ist
-            n = -n;
-        }
-        String[] arr = new String[8]; //Definition des Arrays mit 8 Speicherplätzen
-        int array_count = 7; //Array counter für die While Schleife. Da 0 auch ein array ist hier nur bis 7 und nicht bis 8 (ich fang lieber bei 7 an weil dann 0 auch der linkeste Bit ist)
-        while (array_count >= 0) {
-            if (n % 2 == 1) {
-                arr[array_count] = "0"; //Arrays werden durch die Schleife numeriert und dann durch if/else Bedingungen beschrieben
-            } else {
-                arr[array_count] = "1";
+        if (n >= 0) {
+            result += toBinary(n);
+            while (result.length() < 8) {
+                result = "0" + result;
             }
-            array_count--; //Runterzählen weil wir ja bei 7 anfangen
-            n /= 2; //n halbieren weil Binärdarstellung und so
+            return result;
+        } else {
+            String complement = "";
+            n++;
+            result += toBinary(-n);
+            while (result.length() < 8) {
+                result = "0" + result;
+            }
+            for (int i = 0; i < result.length(); i++) {
+                if (result.charAt(i) == '0') {
+                    complement += '1';
+                } else {
+                    complement += '0';
+                }
+            }
+            return complement;
         }
-        return (arr[0] + arr[1] + arr[2] + arr[3] + arr[4] + arr[5] + arr[6] + arr[7]); //Arrays sind schon mit Sring Werten beschrieben also verketten wir hier einfach nur noch
     }
+    	
 
 
         toTwosComplement(-5);
         toTwosComplement(-127);
         toTwosComplement(-55);
 ```
+
+
 
 ```java
 static String toTwosComplement(int n) {
@@ -140,74 +149,30 @@ static String toTwosComplement(int n) {
 ```
 
 ```java
-    static boolean canIWin(int pileA, int pileB) {
-        if ((pileA < 2 && pileB == 2) || (pileA < 2 && pileB == 3) || (pileA < 2 && pileB == 4) || (pileB < 2 && pileA == 2) || (pileB < 2 && pileA == 3) || (pileB < 2 && pileA == 4)) {
-            return true;
+    static double krt(double a, double k, double d) {
+        if (a < 0 || k < 0 || d < 0) {
+            return 0;
         }
-        if (pileA < 2 && pileB < 2) {
-            return false;
-        }
-        if (pileA == pileB) {
-            return false;
-        }
-        if (pileA + pileB > 0) {
-            return (canIWin(pileA, pileB - 4) | canIWin(pileA, pileB - 5) |
-                    canIWin(pileA, pileB - 6) | canIWin(pileA - 2, pileB - 2) |
-                    canIWin(pileA - 3, pileB - 2) | canIWin(pileA - 3, pileB - 3) |
-                    canIWin(pileA - 2, pileB - 3) | canIWin(pileA - 6, pileB) |
-                    canIWin(pileA - 5, pileB) | canIWin(pileA - 4, pileB));
-        }
-        return false;
+        return krtH(a, k, d, a); //a für x_n weil, x0 gleich a ist
     }
 
-        static void whatShouldIDo(int pileA, int pileB) {
-            if ((pileA < 2 && pileB == 2) || (pileA < 2 && pileB == 3) || (pileA < 2 && pileB == 4)) {
-                System.out.println("Nimm so viele Steine wie möglich aus Pile B");
-                return;
+        static double krtH(double a, double k, double d, double x_n) {
+            double x_n_plusOne = (1.0 / k) * ((k - 1.0) * x_n + (a / Math.pow(x_n, k - 1.0))); //die Formel für x_n+1 in eine Variable gefasst
+            if (Math.abs((x_n - x_n_plusOne)) < d) {
+                return x_n;
             }
-            if ((pileB < 2 && pileA == 2) || (pileB < 2 && pileA == 3) || (pileB < 2 && pileA == 4)) {
-                System.out.println("Nimm so viele Steine wie möglich aus Pile A");
-                return;
-            }
-            if (canIWin(pileA, pileB) == false) {
-                System.out.println("Aufgeben?");
-                return;
-            }
-            if ((pileA + 2 == pileB) || (pileA + 3 == pileB) || (pileA - 2 == pileB) || (pileA - 3 == pileB)) {
-                System.out.println("Nimm genau so viele Steine aus einem Pile, sodass beide Piles gleich viele Steine haben");
-                return;
-            }
-            if (pileA > pileB) {
-                System.out.println("Nimm zwei Steine aus Pile A");
-                return;
-            }
-            if (pileA < pileB) {
-                System.out.println("Nimm zwei Steine aus Pile B");
-                return;
-            }
+            return krtH(a, k, d, x_n_plusOne);
         }
 
-//Simulation eines Spiels
-        canIWin(17, 23);
-        whatShouldIDo(17, 23); //P1
-        whatShouldIDo(17, 21); //P2
-        whatShouldIDo(17, 18); //P1
-        whatShouldIDo(17, 15); //P2
-        whatShouldIDo(15, 15); //P1
-        whatShouldIDo(13, 15); //P2
-        whatShouldIDo(12, 12); //P1
-        whatShouldIDo(10, 12); //P2
-        whatShouldIDo(10, 10); //P1
-        whatShouldIDo(8, 10); //P2
-        whatShouldIDo(8, 8); //P1
-        whatShouldIDo(6, 8); //P2
-        whatShouldIDo(6, 6); //P1
-        whatShouldIDo(4, 6); //P2
-        whatShouldIDo(4, 4); //P1
-        whatShouldIDo(2, 4); //P2
-        whatShouldIDo(2, 2); //P1
-        whatShouldIDo(0, 2); //P2
-        System.out.println("Player 2 gewinnt");
+        static void krtHTest() {
+            double k = 1.0; //gibt den Grad der Wurzel an
+            double d = 0.00001; //die Toleranz von delta
+            for (double a = 2.0; a <= 16.0; a *= 2) {  //rechnet in jedem schritt 2^a+1 ^^ bis 16
+                System.out.println(krt(a, k, d));
+                k++; //erhöht den Grad um 1
+                d *= d;
+            }
+        }
 ```
 
 
