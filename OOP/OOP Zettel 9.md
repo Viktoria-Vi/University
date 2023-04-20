@@ -181,7 +181,7 @@ public class GoodsSegment {
      */
 
     public boolean checkDimensions(GoodsCrate crate) {
-        double[] dimensions = new double[]{height / 3, width / 3, depth / 3};
+        double[] dimensions = new double[]{height / 3, width / 3, depth};
         double[] crateDimensions = new double[]{crate.height, crate.width, crate.depth};
         Arrays.sort(dimensions);
         Arrays.sort(crateDimensions);

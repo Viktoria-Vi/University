@@ -165,7 +165,7 @@ public interface Number {
 
     void fromIntValue(int value);
 
-    default void add(Number number) {
+    default void add(Number number) { 
         fromIntValue(this.toIntValue() + number.toIntValue()); //this in default Methoden referenziert immer auf das Objekt der Klasse, die sie Implementiert
     }
 
