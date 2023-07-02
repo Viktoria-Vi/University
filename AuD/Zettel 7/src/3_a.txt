@@ -1,0 +1,10 @@
+Die maximale Anzahl von Elementen, die ein Heap mit Höhe h aufnehmen kann,
+kann durch die folgende mathematische Beziehung berechnet werden: 2^h - 1
+
+In einem vollständig Heap haben Ebenen 0 bis h-1 jeweils 2^0, 2^1, 2^2, ..., 2^(h-1) Knoten.
+ Daher beträgt die Gesamtzahl der Knoten in den Ebenen 0 bis h-1:
+2^0 + 2^1 + 2^2 + ... + 2^(h-1) = 2^h - 1
+
+Ein Heap mit Höhe h kann minimal 1 Element aufnehmen, wenn er leer ist.
+Dies gilt unabhängig von der Höhe des Heaps.
+Da der Heap immer mindestens die Wurzel enthält, kann er nicht weniger als ein Element enthalten.

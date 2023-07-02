@@ -1,0 +1,29 @@
+Aufgabe 5.1
+
+
+a) Um die möglichen Schlüssel zu finden, die als letztes in die Hashtabelle eingefügt wurden, betrachten wir die Hashwerte der gegebenen Schlüssel:
+
+Schlüssel: E, Hashwert: 1
+Schlüssel: L, Hashwert: 5
+Schlüssel: M, Hashwert: 0
+Schlüssel: N, Hashwert: 1
+Schlüssel: R, Hashwert: 5
+Schlüssel: Z, Hashwert: 4
+
+Da die Hashtabelle eine Größe von 6 hat, können die Hashwerte der Schlüssel nur die Werte 0 bis 5 annehmen. Der Schlüssel, der als letztes in die Hashtabelle eingefügt wurde, hat den höchsten Hashwert, da er durch das lineare Sondieren an seine Position gelangt ist. Daher können die Schlüssel mit den Hashwerten 5 und 4 als letztes in die Hashtabelle eingefügt worden sein. Das wären die Schlüssel L und R
+
+b)Der Algorithmus verwendet eine HashSet-Datenstruktur, um die bereits durchlaufenen Elemente des Arrays zu speichern. In jedem Schritt wird überprüft, ob das Komplement des aktuellen Elements bereits im Set vorhanden ist. Wenn ja, dann existieren zwei Elemente im Array, deren Summe k ergibt. Wenn nicht, wird das aktuelle Element zum Set hinzugefügt.
+
+Die erwartete Laufzeit des Algorithmus beträgt O(n), da das Durchlaufen des Arrays A eine lineare Laufzeit hat und das Einfügen und Überprüfen in einem HashSet eine erwartete konstante Zeit von O(1) hat.
+
+public boolean hasSumOfTwoElements(int[] A, int k) {
+    HashSet<Integer> set = new HashSet<>();
+    for (int i = 0; i < A.length; i++) {
+        int complement = k - A[i];
+        if (set.contains(complement)) {
+            return true;
+        }
+        set.add(A[i]);
+    }
+    return false;
+}

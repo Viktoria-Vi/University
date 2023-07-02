@@ -1,0 +1,25 @@
+Connected to database
+Usage: java -jar imdbSuche.jar <Prior>
+Movies:
+
+Actors:
+Prior, Herbert
+Plays In :
+Martyrdom of Philip Strong, The
+Unsullied Shield, An
+Co-Actors:
+Connery, Van (1)
+Cooper, Bigelow (1)
+Edwin, Walter (1)
+Eytinge, Harry (1)
+Harris, Wadsworth (1)
+
+Connected to database
+Usage: java -jar imdbSuche.jar <Schwarz>
+Movies:
+Tatort - Schwarzer Advent, 1998, Crime
+Berkel, Christian
+Erhart, Peter
+Fitz, Michael (I)
+Grosser, Renate
+Hartmann, Alexandra

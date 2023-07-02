@@ -1,0 +1,48 @@
+Aufgabe 5-2:
+
+
+a) Hier ist der händische Durchlauf der Operationen auf dem Puffer mit LRU-Strategie:
+
+    Initialer Zustand: [ ]
+        Zuletzt verwendetes Element: keines
+        Nächstes zu entfernendes Element: keines
+
+    put(A):
+        Pufferzustand: [A]
+        Zuletzt verwendetes Element: A
+        Nächstes zu entfernendes Element: keines
+
+    put(H):
+        Pufferzustand: [A, H]
+        Zuletzt verwendetes Element: H
+        Nächstes zu entfernendes Element: keines
+
+    put(J):
+        Pufferzustand: [A, H, J]
+        Zuletzt verwendetes Element: J
+        Nächstes zu entfernendes Element: keines
+
+    get(A):
+        Pufferzustand: [H, J, A]
+        Zuletzt verwendetes Element: A
+        Nächstes zu entfernendes Element: keines
+
+    put(E):
+        Pufferzustand: [H, J, A, E]
+        Zuletzt verwendetes Element: E
+        Nächstes zu entfernendes Element: keines
+
+    put(W):
+        Pufferzustand: [H, J, A, E, W]
+        Zuletzt verwendetes Element: W
+        Nächstes zu entfernendes Element: H
+
+    put(P):
+        Pufferzustand: [J, A, E, W, P]
+        Zuletzt verwendetes Element: P
+        Nächstes zu entfernendes Element: J
+
+    put(A):
+        Pufferzustand: [A, J, E, W, P]
+        Zuletzt verwendetes Element: A
+        Nächstes zu entfernendes Element: J
